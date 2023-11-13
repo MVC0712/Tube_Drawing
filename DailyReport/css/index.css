@@ -1,0 +1,458 @@
+body {
+  margin: 4px;
+  border: solid 1px #0000cc;
+  display: flex;
+  flex-direction: column;
+  height: calc(680px - 2px);
+  width: calc(800px - 2px);
+}
+input {
+  text-align: left;
+}
+.top__wrapper {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.top_left__wrapper,
+.top_right__wrapper {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.material__wrapper {
+  width: 100%;
+  /* height: 600px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: left;
+}
+.left__material {
+  flex: 1;
+  flex-direction: column;
+}
+.right__material {
+  /* flex: 1; */
+  flex-direction: column;
+  margin-right: 20px;
+}
+.element__wrapper {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.melting__wrapper {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.casting__wrapper {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.code_outer {
+  width: 170px;
+  margin-right: 10px;
+}
+.code_title {
+  width: 70px;
+}
+#code {
+  width: 100px;
+}
+
+.product_date_outer {
+  width: 200px;
+  margin-right: 10px;
+}
+.product_date_title {
+  width: 100px;
+}
+#product_date {
+  width: 100px;
+}
+.product_type_outer {
+  width: 170px;
+  margin-right: 10px;
+}
+.product_type_title {
+  width: 120px;
+}
+.product_dim_outer {
+  width: 170px;
+}
+.product_dim_title {
+  width: 120px;
+}
+#product_type,
+#product_dim {
+  width: 70px;
+}
+
+.extrusion_scrap_outer {
+  width: 300px;
+  margin-right: 10px;
+}
+.extrusion_scrap_title {
+  width: 70px;
+}
+#extrusion_scrap {
+  width: 50px;
+}
+.casting_scrap_outer {
+  width: 170px;
+  margin-right: 10px;
+}
+.casting_scrap_title {
+  width: 100px;
+}
+#casting_scrap {
+  width: 50px;
+}
+.aluminium_ingot_outer {
+  width: 140px;
+  margin-right: 10px;
+}
+.aluminium_ingot_title {
+  width: 70px;
+}
+#aluminium_ingot {
+  width: 50px;
+}
+.aluminium_orther_outer {
+  width: 150px;
+  margin-right: 10px;
+}
+.aluminium_orther_title {
+  width: 45px;
+}
+#aluminium_orther {
+  width: 50px;
+}
+.file_outer {
+  width: 350px;
+  margin-right: 10px;
+}
+.file_title {
+  width: 30px;
+}
+#file_upload {
+  /* width: 270px; */
+  display: none;
+}
+#file_upload + label {
+  background-color: white;
+  display: inline-block;
+  cursor: pointer;
+  border: solid 1px #0000ff;
+  width: 260px;
+  height: 20px;
+}
+/* #file_url {
+  width: 250px;
+} */
+#preview__button {
+  width: 50px;
+}
+#material_table {
+  margin-left: 10px;
+}
+#material_table tbody {
+  height: 140px;
+  width: 455px;
+  overflow: auto;
+}
+#add_material_table {
+  width: 250px;
+  height: 20px;
+  margin-left: 10px;
+}
+#material_table thead tr th:nth-child(1),
+#material_table tbody tr td:nth-child(1){
+  display: none;
+}
+#material_table thead tr th:nth-child(2),
+#material_table tbody tr td:nth-child(2),
+#add_material_table thead tr th:nth-child(1) {
+  width: 100px;
+}
+#material_table thead tr th:nth-child(3),
+#material_table tbody tr td:nth-child(3),
+#add_material_table thead tr th:nth-child(2) {
+  width: 100px;
+}
+#material_table thead tr th:nth-child(4),
+#material_table tbody tr td:nth-child(4),
+#add_material_table thead tr th:nth-child(3) {
+  width: 100px;
+}
+#material_table thead tr th:nth-child(5),
+#material_table tbody tr td:nth-child(5),
+#add_material_table thead tr th:nth-child(4) {
+  width: 100px;
+}
+#material_table tbody tr td:nth-child(6) {
+  width: 30px;
+}
+#material_table tbody tr td:nth-child(2) input {
+  width: 90px;
+}
+#material_table tbody tr td:nth-child(3) input {
+  width: 144px;
+}
+#material_table tbody tr td:nth-child(4) input {
+  width: 94px;
+}
+#material_table tbody tr td:nth-child(5) input {
+  width: 94px;
+}
+#add_material_table thead tr th:nth-child(1) input {
+  width: 90px;
+}
+#add_material_table thead tr th:nth-child(2) input {
+  width: 144px;
+}
+#add_material_table thead tr th:nth-child(3) input {
+  width: 94px;
+}
+#add_material_table thead tr th:nth-child(4) input {
+  width: 94px;
+}
+#add_material {
+  width: 100%;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+}
+#element_table tbody {
+  height: 110px;
+  /* width: 480px; */
+  overflow: auto;
+}
+#element_table thead tr th:nth-child(1),
+#element_table tbody tr td:nth-child(1){
+  display: none;
+}
+#element_table thead tr th:nth-child(2),
+#element_table tbody tr td:nth-child(2),
+#element_table thead tr th:nth-child(3),
+#element_table tbody tr td:nth-child(3),
+#element_table thead tr th:nth-child(4),
+#element_table tbody tr td:nth-child(4),
+#element_table thead tr th:nth-child(5),
+#element_table tbody tr td:nth-child(5),
+#element_table thead tr th:nth-child(6),
+#element_table tbody tr td:nth-child(6),
+#element_table thead tr th:nth-child(7),
+#element_table tbody tr td:nth-child(7),
+#element_table thead tr th:nth-child(8),
+#element_table tbody tr td:nth-child(8),
+#element_table thead tr th:nth-child(9),
+#element_table tbody tr td:nth-child(9),
+#element_table thead tr th:nth-child(10),
+#element_table tbody tr td:nth-child(10),
+#element_table thead tr th:nth-child(11),
+#element_table tbody tr td:nth-child(11),
+#element_table thead tr th:nth-child(12),
+#element_table tbody tr td:nth-child(12) {
+  width: 70px;
+}
+#element_table tbody tr td:nth-child(2) input,
+#element_table tbody tr td:nth-child(3) input,
+#element_table tbody tr td:nth-child(4) input,
+#element_table tbody tr td:nth-child(5) input,
+#element_table tbody tr td:nth-child(6) input,
+#element_table tbody tr td:nth-child(7) input,
+#element_table tbody tr td:nth-child(8) input,
+#element_table tbody tr td:nth-child(9) input,
+#element_table tbody tr td:nth-child(10) input,
+#element_table tbody tr td:nth-child(11) input,
+#element_table tbody tr td:nth-child(12) input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+}
+#element_table tbody tr:nth-child(2n),
+#element_table tbody tr:last-child {
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+#melting_table tbody {
+  height: 100px;
+  /* width: 480px; */
+  overflow: auto;
+}
+#melting_table thead tr th:nth-child(1),
+#melting_table tbody tr td:nth-child(1) {
+  width: 100px;
+}
+#melting_table thead tr th:nth-child(2),
+#melting_table thead tr th:nth-child(3) {
+  width: 90px;
+}
+#melting_table thead tr th:nth-child(2) input {
+  width: 90px;
+}
+#casting_table {
+  margin-left: 20px;
+}
+#casting_table tbody {
+  height: 100px;
+  /* width: 480px; */
+  overflow: auto;
+}
+#casting_table thead tr th:nth-child(1),
+#casting_table tbody tr td:nth-child(1) {
+  width: 80px;
+}
+#casting_table thead tr th:nth-child(2) {
+  width: 90px;
+}
+#casting_table thead tr th:nth-child(3) {
+  width: 80px;
+}
+#casting_table thead tr th:nth-child(4) {
+  width: 50px;
+}
+#casting_table thead tr th:nth-child(2) input {
+  width: 90px;
+}
+#casting_table thead tr th:nth-child(4) input {
+  width: 50px;
+}
+#hydro_table tbody {
+  height: 100px;
+  /* width: 480px; */
+  overflow: auto;
+}
+#hydro_table thead tr th:nth-child(1),
+#hydro_table tbody tr td:nth-child(1) {
+  width: 20px;
+}
+#hydro_table thead tr th:nth-child(2) {
+  width: 50px;
+}
+#hydro_table thead tr th:nth-child(3) {
+  width: 90px;
+}
+#hydro_table thead tr th:nth-child(4) {
+  width: 50px;
+}
+#hydro_table thead tr th:nth-child(5) {
+  width: 70px;
+}
+#hydro_table thead tr th:nth-child(3) input {
+  width: 90px;
+}
+#hydro_table thead tr th:nth-child(5) input {
+  width: 70px;
+}
+#save,
+#update {
+  width: 40px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#summary_table tbody {
+  height: 95px;
+  width: 740px;
+  overflow: auto;
+}
+#summary_table thead tr th:nth-child(1),
+#summary_table tbody tr td:nth-child(1) {
+  display: none;
+}
+#summary_table thead tr th:nth-child(2),
+#summary_table tbody tr td:nth-child(2) {
+  width: 40px;
+}
+#summary_table thead tr th:nth-child(3),
+#summary_table tbody tr td:nth-child(3) {
+  width: 70px;
+}
+#summary_table thead tr th:nth-child(4),
+#summary_table tbody tr td:nth-child(4) {
+  width: 50px;
+}
+#summary_table thead tr th:nth-child(5),
+#summary_table tbody tr td:nth-child(5) {
+  width: 80px;
+}
+#summary_table thead tr th:nth-child(6),
+#summary_table tbody tr td:nth-child(6) {
+  width: 80px;
+}
+#summary_table thead tr th:nth-child(7),
+#summary_table tbody tr td:nth-child(7) {
+  width: 70px;
+}
+#summary_table thead tr th:nth-child(8),
+#summary_table tbody tr td:nth-child(8) {
+  width: 70px;
+}
+#summary_table thead tr th:nth-child(9),
+#summary_table tbody tr td:nth-child(9) {
+  width: 80px;
+  text-align: center;
+}
+#summary_table thead tr th:nth-child(10),
+#summary_table tbody tr td:nth-child(10) {
+  width: 75px;
+}
+#summary_table thead tr th:nth-child(11),
+#summary_table tbody tr td:nth-child(11) {
+  width: 75px;
+}
+
+.right_material__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#summary_material_table {
+  margin-right: 10px;
+}
+#summary_material_table tbody {
+  height: 140px;
+  width: 430px;
+  overflow: auto;
+}
+
+#summary_material_table thead tr th:nth-child(1),
+#summary_material_table tbody tr td:nth-child(1){
+  width: 60px;
+}
+#summary_material_table thead tr th:nth-child(2),
+#summary_material_table tbody tr td:nth-child(2) {
+  width: 50px;
+}
+#staff_id {
+  width: 200px;
+}
+.staff_id_title {
+  width: 150px;
+}
+.staff_id_outer {
+  width: 300px;
+  margin-right: 10px;
+}

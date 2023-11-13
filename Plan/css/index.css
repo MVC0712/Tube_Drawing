@@ -1,0 +1,175 @@
+input {
+  text-align: left;
+}
+.top__wrapper {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.top_left__wrapper,
+.top_right__wrapper {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.button__wrapper {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.code_outer {
+  width: 170px;
+  margin-right: 10px;
+  display: none;
+}
+.code_title {
+  width: 70px;
+}
+#code {
+  width: 100px;
+}
+.product_date_outer {
+  width: 140px;
+  margin-right: 10px;
+}
+.product_date_title {
+  width: 40px;
+}
+#product_date {
+  width: 100px;
+}
+.product_type_outer {
+  width: 80px;
+  margin-right: 10px;
+}
+.product_type_title {
+  width: 20px;
+}
+.product_dim_outer {
+  width: 80px;
+  margin-right: 10px;
+}
+.product_dim_title {
+  width: 40px;
+}
+#product_type,
+#product_dim {
+  width: 50px;
+}
+.extrusion_scrap_outer {
+  width: 120px;
+  margin-right: 10px;
+}
+.extrusion_scrap_title {
+  width: 55px;
+}
+#extrusion_scrap {
+  width: 40px;
+}
+.casting_scrap_outer {
+  width: 120px;
+  margin-right: 10px;
+}
+.casting_scrap_title {
+  width: 55px;
+}
+#casting_scrap {
+  width: 40px;
+}
+.aluminium_ingot_outer {
+  width: 120px;
+  margin-right: 10px;
+}
+.aluminium_ingot_title {
+  width: 65px;
+}
+#aluminium_ingot {
+  width: 40px;
+}
+.aluminium_orther_outer {
+  width: 80px;
+  margin-right: 10px;
+}
+.aluminium_orther_title {
+  width: 40px;
+}
+#aluminium_orther {
+  width: 40px;
+}
+#save,
+#update,
+#print {
+  width: 40px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#summary_table tbody {
+  height: 400px;
+  width: 780px;
+  overflow: auto;
+}
+#summary_table thead tr th:nth-child(1),
+#summary_table tbody tr td:nth-child(1) {
+  display: none;
+}
+#summary_table thead tr th:nth-child(2),
+#summary_table tbody tr td:nth-child(2) {
+  width: 100px;
+}
+#summary_table tbody tr td:nth-child(2) input {
+  width: 94px;
+  border: none;
+}
+#summary_table thead tr th:nth-child(3),
+#summary_table tbody tr td:nth-child(3) {
+  width: 70px;
+}
+#summary_table tbody tr td:nth-child(3) select {
+  width: 70px;
+  border: none;
+}
+#summary_table thead tr th:nth-child(4),
+#summary_table tbody tr td:nth-child(4) {
+  width: 70px;
+}
+#summary_table tbody tr td:nth-child(4) select {
+  width: 64px;
+  border: none;
+}
+#summary_table thead tr th:nth-child(5),
+#summary_table tbody tr td:nth-child(5),
+#summary_table thead tr th:nth-child(6),
+#summary_table tbody tr td:nth-child(6),
+#summary_table thead tr th:nth-child(7),
+#summary_table tbody tr td:nth-child(7),
+#summary_table thead tr th:nth-child(8),
+#summary_table tbody tr td:nth-child(8),
+#summary_table thead tr th:nth-child(9),
+#summary_table tbody tr td:nth-child(9) {
+  width: 50px;
+}
+#summary_table tbody tr td:nth-child(5) input,
+#summary_table tbody tr td:nth-child(6) input,
+#summary_table tbody tr td:nth-child(7) input,
+#summary_table tbody tr td:nth-child(8) input,
+#summary_table tbody tr td:nth-child(9) input {
+  width: 44px;
+  border: none;
+}
+#summary_table thead tr th:nth-child(10),
+#summary_table tbody tr td:nth-child(10) {
+  width: 100px;
+  display: none;
+}

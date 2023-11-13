@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan View</title>
+    <link rel="stylesheet" href="../Lib/main.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+<body>
+    <header>Plan View</header>
+    <div class="main__wrapper">
+      <div class="input-block__wrapper">
+        <div class="input__title">Term</div>
+        <input type=date id='std'> →
+        <input type=date id='end'>
+      </div>
+    </div>
+    <div class="summary__wrapper">
+      <div id="table" class="calendar"></div>
+    </div>
+      <canvas id="chart_area" style="width: 100%; max-height: 400px; display: block; box-sizing: border-box; height: 400px;"></canvas>
+    <script src="../Lib/chart.min.js"></script>
+    <script src="../Lib/jquery.min.js"></script>
+    <script src="./scr/index.js"></script>
+  </body>
+</html>
