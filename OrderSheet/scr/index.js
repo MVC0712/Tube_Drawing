@@ -33,22 +33,22 @@ const getDateTime = (date) => {
     const mins = getTwoDigits(date.getMinutes());
     return `${year}-${month}-${day} ${hours}:${mins}:00`;
 }
-// $(function () {
-//   MaterialNameCode();
-//   makeSummaryTable();
-//   selStaff();
-//   var now = new Date();
-//   var MonthLastDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-//   var MonthFirstDate = new Date(now.getFullYear(), (now.getMonth() + 12) % 12, 1);
-//   var formatDateComponent = function(dateComponent) {
-//     return (dateComponent < 10 ? '0' : '') + dateComponent;
-//   };
+$(function () {
+  MaterialNameCode();
+  makeSummaryTable();
+  selStaff();
+  var now = new Date();
+  var MonthLastDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  var MonthFirstDate = new Date(now.getFullYear(), (now.getMonth() + 12) % 12, 1);
+  var formatDateComponent = function(dateComponent) {
+    return (dateComponent < 10 ? '0' : '') + dateComponent;
+  };
 
-//   var formatDate = function(date) {
-//     return date.getFullYear().toString().substr(-2);  + '-' + formatDateComponent(date.getMonth() + 1) + '-' + formatDateComponent(date.getDate()) ;
-//   };
+  var formatDate = function(date) {
+    return date.getFullYear().toString().substr(-2);  + '-' + formatDateComponent(date.getMonth() + 1) + '-' + formatDateComponent(date.getDate()) ;
+  };
 
-// });
+});
 function makeSummaryTable() {
   var fileName = "SelSummary.php";
   var sendData = {
@@ -895,11 +895,3 @@ function inputCheck(val) {
   let regexp = /^[A-Z]{1}[0-9]{2}-[N|D|H][G|I|E]-[0-9]+$/;
   return regexp.test(val);
 };
-
-$(document).on("click", "#directive__input", function () {
-  window.open(
-    "./OrderSheet.html",
-    null,
-    "width=830, height=500,toolbar=yes,menubar=yes,scrollbars=no"
-  );
-});

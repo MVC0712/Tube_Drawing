@@ -1,458 +1,364 @@
 body {
-  margin: 4px;
-  border: solid 1px #0000cc;
-  display: flex;
-  flex-direction: column;
-  height: calc(680px - 2px);
-  width: calc(800px - 2px);
+  width: calc(1100px - 2px);
 }
-input {
-  text-align: left;
+thead > tr > th {
+  border-bottom: 0;
+  height: 20px;
 }
-.top__wrapper {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+thead th,
+tbody th {
+  background-color: #0000ff;
+  border: solid 1px white;
+  color: white;
+  text-align: center;
+  font-size: 9pt;
+  font-weight: normal;
 }
-.top_left__wrapper,
-.top_right__wrapper {
+td, th {
+  padding: 0;
+}
+td {
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+table input {
+  padding: 0;
+  width: 50px;
+}
+input[type="date"]{
+  width: 190px;
+}
+input[type="time"],
+input[type="number"]{
   width: 50%;
+}
+select {
+  width: 110px;
+  height: 22px;
+  border: 1px solid #0000ff;
+}
+tbody tr.selected-record {
+  background-color: #dbdbff;
+}
+
+tbody tr.selected-record input {
+  background-color: #dbdbff;
+}
+button {
+  height: 20px;
+  width: 100px;
+}
+/* basic setting */
+.input__title {
+  width: initial;
+  padding: 0 3px 0 3px;
+}
+/* =============page layout=============== */
+.main__wrapper {
+  padding: 0;
+  height: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.left__wrapper {
+  width: 600px;
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
-.material__wrapper {
+.left__wrapper > .input__wrapper {
+  height: 280px;
   width: 100%;
-  /* height: 600px; */
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: left;
+  flex-wrap: wrap;
 }
-.left__material {
-  flex: 1;
+.left__wrapper > .table__wrapper {
+  height: calc(400px - 280px);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.right__wrapper {
+  width: 220px;
+  height: 100%;
+  border-left: 1px dotted #0000ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex-direction: column;
 }
-.right__material {
-  /* flex: 1; */
+.mid__wrapper {
+  width: 275px;
+  height: 100%;
+  border-left: 1px dotted #0000ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex-direction: column;
-  margin-right: 20px;
 }
-.element__wrapper {
-  width: 100%;
-  height: 200px;
+.button__wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  height: 30px;
   align-items: center;
-}
-.melting__wrapper {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.casting__wrapper {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.code_outer {
-  width: 170px;
-  margin-right: 10px;
-}
-.code_title {
-  width: 70px;
-}
-#code {
-  width: 100px;
 }
 
-.product_date_outer {
-  width: 200px;
-  margin-right: 10px;
+.summary__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(598px - 30px - 380px - 1px);
 }
-.product_date_title {
-  width: 100px;
+/* =============page layout end=============== */
+/* =============input elements =============== */
+.input-block__outer {
+  height: 35px;
+  width: initial;
+  margin: 0 3px 0 3px;
 }
-#product_date {
-  width: 100px;
-}
-.product_type_outer {
-  width: 170px;
-  margin-right: 10px;
-}
-.product_type_title {
-  width: 120px;
-}
-.product_dim_outer {
-  width: 170px;
-}
-.product_dim_title {
-  width: 120px;
-}
-#product_type,
-#product_dim {
-  width: 70px;
-}
-
-.extrusion_scrap_outer {
-  width: 300px;
-  margin-right: 10px;
-}
-.extrusion_scrap_title {
-  width: 70px;
-}
-#extrusion_scrap {
-  width: 50px;
-}
-.casting_scrap_outer {
-  width: 170px;
-  margin-right: 10px;
-}
-.casting_scrap_title {
-  width: 100px;
-}
-#casting_scrap {
-  width: 50px;
-}
-.aluminium_ingot_outer {
-  width: 140px;
-  margin-right: 10px;
-}
-.aluminium_ingot_title {
-  width: 70px;
-}
-#aluminium_ingot {
-  width: 50px;
-}
-.aluminium_orther_outer {
-  width: 150px;
-  margin-right: 10px;
-}
-.aluminium_orther_title {
-  width: 45px;
-}
-#aluminium_orther {
-  width: 50px;
-}
-.file_outer {
-  width: 350px;
-  margin-right: 10px;
-}
-.file_title {
-  width: 30px;
-}
-#file_upload {
-  /* width: 270px; */
+#file-upload__input {
   display: none;
 }
-#file_upload + label {
+#file-upload__input + label {
   background-color: white;
   display: inline-block;
   cursor: pointer;
   border: solid 1px #0000ff;
-  width: 260px;
+  width: 200px;
   height: 20px;
 }
-/* #file_url {
-  width: 250px;
-} */
+#press-direction_file {
+  display: none;
+}
+#press-direction-date__select {
+  display: none;
+}
+#rackqty__input {
+  border-right: 0;
+}
+#start-term,
+#end-term {
+  width: 120px;
+}
+
+#select_ordersheet {
+  padding: 0;
+  margin: 0;
+  width: 62px;
+}
+/* =============input elements end =============== */
+/* =============== TABLES  ==================== */
+.left__wrapper tbody {
+  overflow-y: unset;
+}
 #preview__button {
+  height: 22px;
   width: 50px;
-}
-#material_table {
-  margin-left: 10px;
-}
-#material_table tbody {
-  height: 140px;
-  width: 455px;
-  overflow: auto;
-}
-#add_material_table {
-  width: 250px;
-  height: 20px;
-  margin-left: 10px;
-}
-#material_table thead tr th:nth-child(1),
-#material_table tbody tr td:nth-child(1){
-  display: none;
-}
-#material_table thead tr th:nth-child(2),
-#material_table tbody tr td:nth-child(2),
-#add_material_table thead tr th:nth-child(1) {
-  width: 100px;
-}
-#material_table thead tr th:nth-child(3),
-#material_table tbody tr td:nth-child(3),
-#add_material_table thead tr th:nth-child(2) {
-  width: 100px;
-}
-#material_table thead tr th:nth-child(4),
-#material_table tbody tr td:nth-child(4),
-#add_material_table thead tr th:nth-child(3) {
-  width: 100px;
-}
-#material_table thead tr th:nth-child(5),
-#material_table tbody tr td:nth-child(5),
-#add_material_table thead tr th:nth-child(4) {
-  width: 100px;
-}
-#material_table tbody tr td:nth-child(6) {
-  width: 30px;
-}
-#material_table tbody tr td:nth-child(2) input {
-  width: 90px;
-}
-#material_table tbody tr td:nth-child(3) input {
-  width: 144px;
-}
-#material_table tbody tr td:nth-child(4) input {
-  width: 94px;
-}
-#material_table tbody tr td:nth-child(5) input {
-  width: 94px;
-}
-#add_material_table thead tr th:nth-child(1) input {
-  width: 90px;
-}
-#add_material_table thead tr th:nth-child(2) input {
-  width: 144px;
-}
-#add_material_table thead tr th:nth-child(3) input {
-  width: 94px;
-}
-#add_material_table thead tr th:nth-child(4) input {
-  width: 94px;
-}
-#add_material {
-  width: 100%;
-  height: 20px;
-  padding: 0;
   margin: 0;
 }
-#element_table tbody {
-  height: 110px;
-  /* width: 480px; */
-  overflow: auto;
+
+#input_table_1 tr th:nth-child(1),
+#input_table_1 tr td:nth-child(1) {
+  width: 70px;
 }
-#element_table thead tr th:nth-child(1),
-#element_table tbody tr td:nth-child(1){
+#input_table_1 tr th:nth-child(2),
+#input_table_1 tr td:nth-child(2) {
+  width: 160px;
+}
+#input_table_1 tr th:nth-child(2),
+#input_table_1 tr td:nth-child(2) {
+  width: 160px;
+}
+
+/* summary table */
+#summary__table tr.no-display {
   display: none;
 }
-#element_table thead tr th:nth-child(2),
-#element_table tbody tr td:nth-child(2),
-#element_table thead tr th:nth-child(3),
-#element_table tbody tr td:nth-child(3),
-#element_table thead tr th:nth-child(4),
-#element_table tbody tr td:nth-child(4),
-#element_table thead tr th:nth-child(5),
-#element_table tbody tr td:nth-child(5),
-#element_table thead tr th:nth-child(6),
-#element_table tbody tr td:nth-child(6),
-#element_table thead tr th:nth-child(7),
-#element_table tbody tr td:nth-child(7),
-#element_table thead tr th:nth-child(8),
-#element_table tbody tr td:nth-child(8),
-#element_table thead tr th:nth-child(9),
-#element_table tbody tr td:nth-child(9),
-#element_table thead tr th:nth-child(10),
-#element_table tbody tr td:nth-child(10),
-#element_table thead tr th:nth-child(11),
-#element_table tbody tr td:nth-child(11),
-#element_table thead tr th:nth-child(12),
-#element_table tbody tr td:nth-child(12) {
-  width: 70px;
+
+/* summary table */
+#summary__table {
+  width: 1020px;
 }
-#element_table tbody tr td:nth-child(2) input,
-#element_table tbody tr td:nth-child(3) input,
-#element_table tbody tr td:nth-child(4) input,
-#element_table tbody tr td:nth-child(5) input,
-#element_table tbody tr td:nth-child(6) input,
-#element_table tbody tr td:nth-child(7) input,
-#element_table tbody tr td:nth-child(8) input,
-#element_table tbody tr td:nth-child(9) input,
-#element_table tbody tr td:nth-child(10) input,
-#element_table tbody tr td:nth-child(11) input,
-#element_table tbody tr td:nth-child(12) input {
-  width: 100%;
-  height: 100%;
-  border: 0;
+#summary__table tbody {
+  height: 120px;
+}
+#summary__table th {
   padding: 0;
 }
-#element_table tbody tr:nth-child(2n),
-#element_table tbody tr:last-child {
-  border-bottom: 2px solid rgb(0, 0, 0);
-}
-#melting_table tbody {
-  height: 100px;
-  /* width: 480px; */
-  overflow: auto;
-}
-#melting_table thead tr th:nth-child(1),
-#melting_table tbody tr td:nth-child(1) {
-  width: 100px;
-}
-#melting_table thead tr th:nth-child(2),
-#melting_table thead tr th:nth-child(3) {
-  width: 90px;
-}
-#melting_table thead tr th:nth-child(2) input {
-  width: 90px;
-}
-#casting_table {
-  margin-left: 20px;
-}
-#casting_table tbody {
-  height: 100px;
-  /* width: 480px; */
-  overflow: auto;
-}
-#casting_table thead tr th:nth-child(1),
-#casting_table tbody tr td:nth-child(1) {
-  width: 80px;
-}
-#casting_table thead tr th:nth-child(2) {
-  width: 90px;
-}
-#casting_table thead tr th:nth-child(3) {
-  width: 80px;
-}
-#casting_table thead tr th:nth-child(4) {
-  width: 50px;
-}
-#casting_table thead tr th:nth-child(2) input {
-  width: 90px;
-}
-#casting_table thead tr th:nth-child(4) input {
-  width: 50px;
-}
-#hydro_table tbody {
-  height: 100px;
-  /* width: 480px; */
-  overflow: auto;
-}
-#hydro_table thead tr th:nth-child(1),
-#hydro_table tbody tr td:nth-child(1) {
-  width: 20px;
-}
-#hydro_table thead tr th:nth-child(2) {
-  width: 50px;
-}
-#hydro_table thead tr th:nth-child(3) {
-  width: 90px;
-}
-#hydro_table thead tr th:nth-child(4) {
-  width: 50px;
-}
-#hydro_table thead tr th:nth-child(5) {
-  width: 70px;
-}
-#hydro_table thead tr th:nth-child(3) input {
-  width: 90px;
-}
-#hydro_table thead tr th:nth-child(5) input {
-  width: 70px;
-}
-#save,
-#update {
-  width: 40px;
-  height: 20px;
-  padding: 0;
-  margin: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-#summary_table tbody {
-  height: 95px;
-  width: 740px;
-  overflow: auto;
-}
-#summary_table thead tr th:nth-child(1),
-#summary_table tbody tr td:nth-child(1) {
+
+/* id */
+#summary__table tr th:nth-child(1),
+#summary__table tr td:nth-child(1) {
   display: none;
 }
-#summary_table thead tr th:nth-child(2),
-#summary_table tbody tr td:nth-child(2) {
+
+/* date */
+#summary__table tr th:nth-child(2),
+#summary__table tr td:nth-child(2) {
   width: 40px;
-}
-#summary_table thead tr th:nth-child(3),
-#summary_table tbody tr td:nth-child(3) {
-  width: 70px;
-}
-#summary_table thead tr th:nth-child(4),
-#summary_table tbody tr td:nth-child(4) {
-  width: 50px;
-}
-#summary_table thead tr th:nth-child(5),
-#summary_table tbody tr td:nth-child(5) {
-  width: 80px;
-}
-#summary_table thead tr th:nth-child(6),
-#summary_table tbody tr td:nth-child(6) {
-  width: 80px;
-}
-#summary_table thead tr th:nth-child(7),
-#summary_table tbody tr td:nth-child(7) {
-  width: 70px;
-}
-#summary_table thead tr th:nth-child(8),
-#summary_table tbody tr td:nth-child(8) {
-  width: 70px;
-}
-#summary_table thead tr th:nth-child(9),
-#summary_table tbody tr td:nth-child(9) {
-  width: 80px;
   text-align: center;
 }
-#summary_table thead tr th:nth-child(10),
-#summary_table tbody tr td:nth-child(10) {
-  width: 75px;
+/* Press Number */
+#summary__table tr th:nth-child(3),
+#summary__table tr td:nth-child(3) {
+  width: 20px;
 }
-#summary_table thead tr th:nth-child(11),
-#summary_table tbody tr td:nth-child(11) {
-  width: 75px;
+#summary__table tr td:nth-child(3) {
+  text-align: center;
+}
+/* Die Name */
+#summary__table tr th:nth-child(4),
+#summary__table tr td:nth-child(4) {
+  width: 100px;
+}
+#summary__table tr td:nth-child(4) {
+  text-align: left;
+}
+/* Die_id */
+#summary__table tr th:nth-child(5),
+#summary__table tr td:nth-child(5) {
+  display: none;
+}
+/* Order Sheet */
+#summary__table tr th:nth-child(6),
+#summary__table tr td:nth-child(6) {
+  width: 100px;
+}
+/* Press Type */
+#summary__table tr th:nth-child(7),
+#summary__table tr td:nth-child(7) {
+  width: 25px;
 }
 
-.right_material__wrapper {
-  display: flex;
-  flex-direction: row;
+#summary__table tr td:nth-child(7) {
+  text-align: center;
+  font-family: "MS ゴシック";
 }
 
-#summary_material_table {
-  margin-right: 10px;
+/* Press Type_id */
+
+#summary__table tr th:nth-child(8),
+#summary__table tr td:nth-child(8) {
+  display: none;
 }
-#summary_material_table tbody {
-  height: 140px;
-  width: 430px;
-  overflow: auto;
+/* is Washed */
+#summary__table tr th:nth-child(9),
+#summary__table tr td:nth-child(9) {
+  width: 42px;
 }
 
-#summary_material_table thead tr th:nth-child(1),
-#summary_material_table tbody tr td:nth-child(1){
-  width: 60px;
+#summary__table tr td:nth-child(9) {
+  text-align: center;
 }
-#summary_material_table thead tr th:nth-child(2),
-#summary_material_table tbody tr td:nth-child(2) {
-  width: 50px;
+
+/* is Washed_id */
+
+#summary__table tr th:nth-child(10),
+#summary__table tr td:nth-child(10) {
+  display: none;
 }
-#staff_id {
-  width: 200px;
+
+/* billet lot */
+
+#summary__table tr th:nth-child(11),
+#summary__table tr td:nth-child(11) {
+  width: 130px;
 }
-.staff_id_title {
+
+/* B/S */
+
+#summary__table tr th:nth-child(12),
+#summary__table tr td:nth-child(12) {
+  width: 23px;
+}
+
+#summary__table tr td:nth-child(12) {
+  text-align: right;
+}
+
+/* Billet Length */
+
+#summary__table tr th:nth-child(13),
+#summary__table tr td:nth-child(13) {
+  width: 35px;
+}
+
+#summary__table tr td:nth-child(13) {
+  text-align: right;
+}
+
+/* Plan Billet Qty */
+
+#summary__table tr th:nth-child(14),
+#summary__table tr td:nth-child(14) {
+  width: 37px;
+}
+
+#summary__table tr td:nth-child(14) {
+  text-align: right;
+}
+
+/* Actual Billet Qty */
+
+#summary__table tr th:nth-child(15),
+#summary__table tr td:nth-child(15) {
+  width: 37px;
+}
+
+#summary__table tr td:nth-child(15) {
+  text-align: right;
+}
+
+/* Stop Cause */
+
+#summary__table tr th:nth-child(16),
+#summary__table tr td:nth-child(16) {
   width: 150px;
 }
-.staff_id_outer {
-  width: 300px;
-  margin-right: 10px;
+
+#summary__table tr td:nth-child(16) {
+  text-align: right;
+}
+
+/* Start Finish time */
+
+#summary__table tr th:nth-child(17),
+#summary__table tr td:nth-child(17),
+#summary__table tr th:nth-child(18),
+#summary__table tr td:nth-child(18) {
+  width: 48px;
+}
+
+#summary__table tr td:nth-child(17),
+#summary__table tr td:nth-child(18) {
+  text-align: right;
+}
+
+/* Ramspeed Dietemp */
+
+#summary__table tr th:nth-child(19),
+#summary__table tr td:nth-child(19),
+#summary__table tr th:nth-child(20),
+#summary__table tr td:nth-child(20) {
+  width: 50px;
+}
+#summary__table tr td:nth-child(22) {
+  display: none;
+}
+
+#summary__table tr td:nth-child(19),
+#summary__table tr td:nth-child(20) {
+  text-align: right;
+}
+/* Press Directive Sheet */
+#summary__table tr th:nth-child(21),
+#summary__table tr td:nth-child(21) {
+  width: 50px;
+}
+#summary__table tr td:nth-child(21) {
+  text-align: center;
 }

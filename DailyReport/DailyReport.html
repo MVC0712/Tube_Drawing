@@ -9,430 +9,293 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <header>DailyReport Page</header>
-      <div class="top__wrapper">
-        <div class="top_left__wrapper">
-        <div class="input-block__outer code_outer">
-          <div class="input__title code_title">
-            Mã đúc
-          </div>
-          <div>
-            <input type="text" id="code" class="no-input save-data need-clear">
-          </div>
-        </div>
-        <div class="input-block__outer product_date_outer">
-          <div class="input__title product_date_title">
-            Ngày SX
-          </div>
-          <div>
-            <input type="date" id="product_date" class="no-input save-data need-clear">
-          </div>
-        </div>
-        <div class="input-block__outer product_type_outer">
-          <div class="input__title product_type_title">
-            Mã VL
-          </div>
-          <div>
-            <select id="product_type" class="no-input save-data need-clear">
-              <option value="0">--</option>
-              <option value="1">6061</option>
-              <option value="2">6063</option>
-              <option value="3">6N01A</option>
-              <option value="4">6N01</option>
-            </select>
-          </div>
-        </div>
-        <div class="input-block__outer product_dim_outer">
-          <div class="input__title product_dim_title">
-            Đường kính
-          </div>
-          <div>
-            <select id="product_dim" class="save-data complete-input">
-              <option value="1">9 inch</option>
-              <option value="3">12 inch</option>
-              <option value="2">14 inch</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="top_right__wrapper">
-        <div class="input-block__outer extrusion_scrap_outer" style="display:none">
-          <div class="input__title extrusion_scrap_title">
-            PP Đùn
-          </div>
-          <div>
-            <input type="text" id="extrusion_scrap" class="save-data need-clear complete-input no-need number-input">
-          </div>
-        </div>
-        <div class="input-block__outer casting_scrap_outer" style="display:none">
-          <div class="input__title casting_scrap_title">
-            PP Đúc
-          </div>
-          <div>
-            <input type="text" id="casting_scrap" class="save-data need-clear complete-input no-need number-input">
-          </div>
-        </div>
-        <div class="input-block__outer aluminium_ingot_outer" style="display:none">
-          <div class="input__title aluminium_ingot_title">
-            Al 99.7%
-          </div>
-          <div>
-            <input type="text" id="aluminium_ingot" class="save-data need-clear complete-input no-need number-input">
-          </div>
-        </div>
-        <div class="input-block__outer aluminium_orther_outer" style="display:none">
-          <div class="input__title aluminium_orther_title">
-            Khác
-          </div>
-          <div>
-            <input type="text" id="aluminium_orther" class="save-data need-clear complete-input no-need number-input">
-          </div>
-        </div>
-        <div class="input-block__outer staff_id_outer">
-          <div class="input__title staff_id_title">
-            Người nhập
-          </div>
-          <div>
-            <select id="staff_id" class="save-data need-clear no-input">
-              <option value="0">-----</option>
-              <option value="1">MVC</option>
-              <option value="2">VCT</option>
-            </select>
-          </div>
-        </div>
-        <div class="input-block__outer file_outer">
-          <div class="input__title file_title">
-            File
-          </div>
-          <div>
-            <input type="file" id="file_upload" class="need-clear">
-            <label id="file_url" for="file_upload">No file</label>
-          </div>
-          <button id="preview__button" class="input__title aluminium_ingot_title">
-            Xem
-          </button>
-        </div>
-      </div>
-      </div>
-      <div class="material__wrapper">
-        <div class="left__material">
+    <header>Dailyreport Input</header>
+    <div class="main__wrapper">
+      <div class="left__wrapper">
         <div>
-          <table id="add_material_table">
+          <table id="input_table_1">
             <thead>
               <tr>
-                <th>Vật liệu</th>
-                <th>Mã vật liệu</th>
-                <th>Khối lượng</th>
-                <th><button id="add_material" disabled>Save</button></th>
+                <th>Ngày SX</th>
+                <td>
+                  <input id="production_date" type="date">
+                  <select id="prouction_type_id"></select>
+                </td>
               </tr>
               <tr>
-                <th>
-                  <select id="material" class="no-input need-clear">
-                  </select>
-                </th>
-                <th>
-                  <select id="material_type" class="no-input need-clear">
-                    <option value="0">NO</option>
-                  </select>
-                </th>
-                <th><input type="text" id="material_weight" class="no-input need-clear"/></th>
-                <th><input type="text" id="material_note" class="save-data need-clear"/></th>
+                <th>Giờ SX</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+              <tr>
+                <th>Nhân viên</th>
+                <td>
+                  <input id="staff" type="text">
+                  <select id="staff_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã CT</th>
+                <td>
+                  <button id="select_ordersheet">Sel</button>
+                  <select id="ordersheet_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã SP</th>
+                <td>
+                  <input id="production_number" type="text">
+                  <select id="production_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã Khuôn</th>
+                <td>
+                  <input id="die_number" type="text">
+                  <select id="die_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>TT Khuôn</th>
+                <td>
+                  <select id="die_status_id"></select>
+                  <input id="die_status_note" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th>Mã Plug</th>
+                <td>
+                  <input id="plug_number" type="text">
+                  <select id="plug_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>TT Plug</th>
+                <td>
+                  <select id="plug_status_id"></select>
+                  <input id="plug_status_note" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th>Ngày đùn</th>
+                <td>
+                  <input id="press_date" type="date">
+                  <select id="press_id"></select>
+                </td>
               </tr>
             </thead>
           </table>
-        </div>
-        <div>
-          <table id="material_table">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Vật liệu</th>
-                <th>Mã vật liệu</th>
-                <th>Khối lượng</th>
-                <th>Ghi chú</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="right__material right_material__wrapper">
-        <table id="summary_material_table">
-          <thead>
-            <tr>
-              <th colspan="2">Tổng vật liệu</th>
-            </tr>
-            <tr>
-              <th>PL Đùn</th>
-              <th id="plextrusion">0</th>
-            </tr>
-            <tr>
-              <th>Discard</th>
-              <th id="pldiscard">0</th>
-            </tr>
-            <tr>
-              <th>PL Cắt</th>
-              <th id="plcut">0</th>
-            </tr>
-            <tr>
-              <th>PL Đúc</th>
-              <th id="plcast">0</th>
-            </tr>
-            <tr>
-              <th>GC NG</th>
-              <th id="plgcng">0</th>
-            </tr>
-            <tr>
-              <th>Al 99.7%</th>
-              <th id="plingot">0</th>
-            </tr>
-            <tr>
-              <th>Al Alloy</th>
-              <th id="plalloy">0</th>
-            </tr>
-            <tr>
-              <th>Khác</th>
-              <th id="plorther">0</th>
-            </tr>
-            <tr>
-              <th>Tổng</th>
-              <th id="ttmate">0</th>
-            </tr>
-          </thead>
-        </table>
-        <table id="melting_table">
-          <thead>
-            <tr>
-              <th colspan="2">Dữ liệu nung</th>
-            </tr>
-            <tr>
-              <th>Bắt đầu nung</th>
-              <th><input type="time" id="melting_start" class="no-input save-data need-clear date-time"></th>
-            </tr>
-            <tr>
-              <th>Kết thúc nung</th>
-              <th><input type="time"id="melting_end"class="no-input save-data need-clear date-time"></th>
-            </tr>
-            <tr>
-              <th>Gas bắt đầu</th>
-              <th><input type="text" id="melting_gas_start" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Gas kết thúc</th>
-              <th><input type="text" id="melting_gas_end" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Thời gian nghỉ</th>
-              <th><input type="text" id="break_time" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Nhiệt độ nung</th>
-              <th><input type="text" id="melting_temp" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>T/G tinh luyện 1</th>
-              <th><input type="text" id="refined_time_1" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>T/G tinh luyện 2</th>
-              <th><input type="text" id="refined_time_2" class="save-data need-clear no-need number-input"></th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-    </div>
-      <div class="element__wrapper">
-        <div>
-          <table id="element_table">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th rowspan="2">Tiêu chuẩn</th>
-                <th>Al-Cu(%Cu)</th>
-                <th>Al-Si(%Si)</th>
-                <th>Mg(%Mg)</th>
-                <th>Al-Zn(%Zn)</th>
-                <th>Al-Fe(%Fe)</th>
-                <th>Al-Mn(%Mn)</th>
-                <th>Al-Cr(%Cr)</th>
-                <th>Al-Ti-B</th>
-                <th rowspan="2">Flux(Kg)</th>
-              </tr>
-              <tr>
-                <th>id</th>
-                <th id="cu_req">Al-Cu</th>
-                <th id="si_req">Al-Si</th>
-                <th id="mg_req">Mg</th>
-                <th id="zn_req">Al-Zn</th>
-                <th id="fe_req">Al-Fe</th>
-                <th id="mn_req">Al-Mn</th>
-                <th id="cr_req">Al-Cr</th>
-                <th id="ti_b_req">Al-Ti-B</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>id</td>
-                <td>Đo lần 1(%)</td>
-                <td><input type="text" id="me_cu_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_si_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_mg_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_zn_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_fe_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_mn_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_cr_1" class="no-input save-data need-clear number-input"></td>
-                <td><input type="text" id="me_ti_b_1" class="no-input save-data need-clear number-input"></td>
-                <td rowspan="2"><input type="text" id="flux_1" class="no-input save-data need-clear number-input"></td>
-              </tr>
-              <tr>
-                <td>id</td>
-                <td>KLHK1(Kg)</td>
-                <td><input type="text" id="input_cu_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_si_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_mg_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_zn_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_fe_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_mn_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_cr_1" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_ti_b_1" class="save-data need-clear no-need number-input"></td>
-              </tr>
-              <tr>
-                <td>id</td>
-                <td>Đo lần 2(%)</td>
-                <td><input type="text" id="me_cu_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_si_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_mg_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_zn_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_fe_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_mn_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_cr_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_ti_b_2" class="save-data need-clear no-need number-input"></td>
-                <td rowspan="2"><input type="text" id="flux_2" class="save-data need-clear no-need number-input"></td>
-              </tr>
-              <tr>
-                <td>id</td>
-                <td>KLHK2(Kg)</td>
-                <td><input type="text" id="input_cu_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_si_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_mg_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_zn_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_fe_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_mn_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_cr_2" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="input_ti_b_2" class="save-data need-clear no-need number-input"></td>
-              </tr>
-              <td>id</td>
-                <td>Đo lần 3(%)</td>
-                <td><input type="text" id="me_cu_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_si_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_mg_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_zn_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_fe_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_mn_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_cr_3" class="save-data need-clear no-need number-input"></td>
-                <td><input type="text" id="me_ti_b_3" class="save-data need-clear no-need number-input"></td>
-                <td></td>
-            </tbody>
-          </table>
-        </div>
-      </div>
 
-      <div class="casting__wrapper">
-        <div class="left__material">
-        <table id="casting_table">
-          <thead>
-            <tr>
-              <th colspan="5">Dữ liệu đúc</th>
-            </tr>
-            <tr>
-              <th>Bắt đầu đúc</th>
-              <th><input type="time" id="casting_start" class="no-input save-data need-clear date-time"></th>
-              <th>T0 Al cửa lò</th>
-              <th><input type="text" id="al_temp_gate" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Kết thúc đúc</th>
-              <th><input type="time" id="casting_end" class="no-input save-data need-clear date-time"></th>
-              <th>T0 Al bàn đúc</th>
-              <th><input type="text" id="al_temp_cast" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Áp lực khí</th>
-              <th><input type="text" id="air_pressure" class="no-input save-data need-clear number-input"></th>
-              <th>Nhiệt độ nước</th>
-              <th><input type="text" id="water_temp" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>Áp lực dầu</th>
-              <th><input type="text" id="oil_preasure" class="no-input save-data need-clear number-input"></th>
-              <th>Tốc độ đúc</th>
-              <th><input type="text" id="casting_speed" class="no-input save-data need-clear number-input"></th>
-            </tr>
-          </thead>
-        </table>
+          <table id="input_table_1">
+            <thead>
+              <tr>
+                <th colspan="2">Điều chỉnh khuôn</th>
+              </tr>
+              <tr>
+                <th>Bu-lông A</th>
+                <td>
+                  <input id="production_time_start" type="number">
+                  <input id="production_time_end" type="number">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông B</th>
+                <td>
+                  <input id="production_time_start" type="number">
+                  <input id="production_time_end" type="number">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông C</th>
+                <td>
+                  <input id="production_time_start" type="number">
+                  <input id="production_time_end" type="number">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông D</th>
+                <td>
+                  <input id="production_time_start" type="number">
+                  <input id="production_time_end" type="number">
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <div>
+          <table id="input_table_1">
+            <thead>
+              <tr>
+                <th>Ngày SX</th>
+                <td>
+                  <input id="production_date" type="date">
+                  <select id="prouction_type_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Giờ SX</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+              <tr>
+                <th>Nhân viên</th>
+                <td>
+                  <input id="staff" type="text">
+                  <select id="staff_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã CT</th>
+                <td>
+                  <button id="select_ordersheet">Sel</button>
+                  <select id="ordersheet_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã SP</th>
+                <td>
+                  <input id="production_number" type="text">
+                  <select id="production_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>Mã Khuôn</th>
+                <td>
+                  <input id="die_number" type="text">
+                  <select id="die_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>TT Khuôn</th>
+                <td>
+                  <select id="die_status_id"></select>
+                  <input id="die_status_note" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th>Mã Plug</th>
+                <td>
+                  <input id="plug_number" type="text">
+                  <select id="plug_number_id"></select>
+                </td>
+              </tr>
+              <tr>
+                <th>TT Plug</th>
+                <td>
+                  <select id="plug_status_id"></select>
+                  <input id="plug_status_note" type="text">
+                </td>
+              </tr>
+              <tr>
+                <th>Ngày đùn</th>
+                <td>
+                  <input id="press_date" type="date">
+                  <select id="press_id"></select>
+                </td>
+              </tr>
+            </thead>
+          </table>
+
+          <table id="input_table_1">
+            <thead>
+              <tr>
+                <th colspan="2">Điều chỉnh khuôn</th>
+              </tr>
+              <tr>
+                <th>Bu-lông A</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông B</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông C</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+              <tr>
+                <th>Bu-lông D</th>
+                <td>
+                  <input id="production_time_start" type="time">
+                  <input id="production_time_end" type="time">
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
       </div>
-      <div class="right__material">
-        <table id="hydro_table">
-          <thead>
-            <tr>
-              <th colspan="5">Hydro Data</th>
-            </tr>
-            <tr>
-              <th>1</th>
-              <th>Giờ</th>
-              <th><input type="time" id="hydro_time_1" class="no-input save-data need-clear"></th>
-              <th>Số liệu</th>
-              <th><input type="text" id="hydro_value_1" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>2</th>
-              <th>Giờ</th>
-              <th><input type="time" id="hydro_time_2" class="no-input save-data need-clear"></th>
-              <th>Số liệu</th>
-              <th><input type="text" id="hydro_value_2" class="no-input save-data need-clear number-input"></th>
-            </tr>
-            <tr>
-              <th>3</th>
-              <th>Giờ</th>
-              <th><input type="time" id="hydro_time_3" class="save-data need-clear no-need"></th>
-              <th>Số liệu</th>
-              <th><input type="text" id="hydro_value_3" class="save-data need-clear number-input no-need"></th>
-            </tr>
-            <tr>
-              <th>4</th>
-              <th>Giờ</th>
-              <th><input type="time" id="hydro_time_4" class="save-data need-clear no-need"></th>
-              <th>Số liệu</th>
-              <th><input type="text" id="hydro_value_4" class="save-data need-clear number-input no-need"></th>
-            </tr>
-          </thead>
-        </table>
+      <div class="mid__wrapper">
+
+
       </div>
-      <div>
-      <button disabled id="save">
-        Save
-      </button>
-      <button disabled id="update">
-        Update
-      </button>
+      <div class="right__wrapper">
+
+
+      </div>
     </div>
+
+    <div class="button__wrapper">
+      <button id="save__button" disabled>Save</button>
+      <button id="update__button" disabled>Update</button>
+      <div class="input-block__outer">
+        <div class="input__title">P Type</div>
+        <select id="press-type-filter">
+          <option value=""></option>
+          <option value="1">〇</option>
+          <option value="2">◎</option>
+          <option value="3">●</option>
+        </select>
+      </div>
+      <div class="input-block__outer">
+        <div class="input__title">Die</div>
+        <input id="die-number-fileter" class="need-clear" type="text" />
+      </div>
+      <div class="input-block__outer">
+        <div class="input__title">Term</div>
+        <input id="start-term" class="need-clear" type="date" />-
+        <input id="end-term" class="need-clear" type="date" />
+      </div>
     </div>
-    <div class="melting__wrapper">
-      <table id="summary_table">
+    <div class="summary__wrapper">
+      <table id="summary__table">
         <thead>
           <tr>
-            <th>id</th>
-            <th>Mã đúc</th>
-            <th>Ngày SX</th>
-            <th>Vật liệu</th>
-            <th>Bắt đầu nung</th>
-            <th>Kết thúc nung</th>
-            <th>Gas bắt đầu</th>
-            <th>Gas kết thúc</th>
-            <th>Gas đã dùng</th>
-            <th>Bắt đầu đúc</th>
-            <th>Kết thúc đúc</th>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Prs</th>
+            <th>Die</th>
+            <th>Die_id</th>
+            <th>O/S</th>
+            <th>Typ</th>
+            <th>Typ_id</th>
+            <th>isWshd</th>
+            <th>isWshd_id</th>
+            <th>BiletBandl</th>
+            <th>B/S</th>
+            <th>B/L</th>
+            <th>PQty</th>
+            <th>AQty</th>
+            <th>StopCu</th>
+            <th>Start</th>
+            <th>Stop</th>
+            <th>RamSpd</th>
+            <th>DieTmp</th>
+            <th>P/D/S</th>
           </tr>
         </thead>
         <tbody></tbody>

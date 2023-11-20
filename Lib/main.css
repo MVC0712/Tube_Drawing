@@ -15,13 +15,55 @@ body {
 header {
   display: flex;
   border-bottom: dotted 1px #0000cc;
-  flex-direction: column;
+  flex-direction: row;
   height: 30px;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
   text-align: center;
   background-color: #0000cc;
   color: white;
   font-weight: bold;
+}
+header > div:nth-child(1),
+header > div:nth-child(5) {
+  width: 40px;
+}
+header > div:nth-child(2),
+header > div:nth-child(4) {
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header > div:nth-child(3) {
+  /* width: 50px; */
+}
+header > div:nth-child(3) {
+  display: flex;
+  align-items: center;
+}
+#machine_status {
+  font-weight: normal;
+  cursor: pointer;
+}
+.machine_number {
+  width: 40px;
+}
+.machine_status {
+  width: 70px;
+  height: 20px;
+}
+#number1_status {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0000cc;
+  /* border: greenyellow; */
+}
+#number2_status {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0000cc;
+  /* border: greenyellow; */
 }
 footer {
   width: 100%;
@@ -30,7 +72,7 @@ footer {
 .main__wrapper {
   /* border-bottom: dotted 1px #0000cc; */
   display: flex;
-  height: 480px;
+  height: 550px;
   flex-direction: column;
   flex-wrap: wrap;
   font-size: 10pt;
@@ -39,8 +81,8 @@ footer {
 }
 /* ボタンの設定 */
 button {
-  width: 80px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   display: block;
   position: relative;
   padding: 0px;
@@ -96,7 +138,7 @@ tbody td {
   font-weight: normal;
 }
 tbody tr.selected-record {
-  background-color: #91f2ff;
+  background-color: #d6d283;
 }
 /* 必要入力枠の色塗り */
 .input-required {
