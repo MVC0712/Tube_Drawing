@@ -7,22 +7,22 @@ if ($dbh->getInstance() === null) {
 $datetime = date("Y-m-d H:i:s");
 try {
     $sql = "SELECT 
-    t_casting.id,
-    code,
-    product_date,
-    material_type,
-    melting_start,
-    melting_end,
-    melting_gas_start,
-    melting_gas_end,
-    (melting_gas_end-melting_gas_start),
-    casting_start,
-    casting_end
+    tube_drawing.t_drawing.id,
+    tube_drawing.t_drawing.production_date,
+    tube_drawing.m_production_numbers.production_number,
+    tube_drawing.t_drawing.production_time_start,
+    tube_drawing.t_drawing.production_time_end,
+    tube_drawing.m_dies.die_number,
+    tube_drawing.m_plugs.plug_number
 FROM
-    billet_casting.t_casting
-        LEFT JOIN
-    m_material_type ON m_material_type.id = t_casting.product_type
-    ORDER BY product_date DESC;";
+    tube_drawing.t_drawing
+LEFT JOIN
+    tube_drawing.m_production_numbers ON tube_drawing.m_production_numbers.id = tube_drawing.t_drawing.production_number_id
+LEFT JOIN
+    tube_drawing.m_dies ON tube_drawing.m_dies.id = tube_drawing.t_drawing.die_number_id
+LEFT JOIN
+    tube_drawing.m_plugs ON tube_drawing.m_plugs.id = tube_drawing.t_drawing.plug_number_id
+ORDER BY production_date DESC";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

@@ -5,122 +5,60 @@ if ($dbh->getInstance() === null) {
     die("No database connection");
 }
 
-$air_pressure = $_POST['air_pressure'];
-$al_temp_cast = $_POST['al_temp_cast'];
-$al_temp_gate = $_POST['al_temp_gate'];
-$aluminium_ingot = $_POST['aluminium_ingot'];
-$aluminium_orther = $_POST['aluminium_orther'];
-$break_time = $_POST['break_time'];
-$casting_end = $_POST['casting_end'];
-$casting_scrap = $_POST['casting_scrap'];
-$casting_start = $_POST['casting_start'];
-$code = $_POST['code'];
-$extrusion_scrap = $_POST['extrusion_scrap'];
-$file_url = $_POST['file_url'];
-$flux_1 = $_POST['flux_1'];
-$flux_2 = $_POST['flux_2'];
-$hydro_time_1 = $_POST['hydro_time_1'];
-$hydro_time_2 = $_POST['hydro_time_2'];
-if ($_POST['hydro_time_3'] != "") {
-    $hydro_time_3 = $_POST['hydro_time_3'];
-} else {
-    $hydro_time_3 = null;
-}
-// $hydro_time_3 = $_POST['hydro_time_3'];
-if ($_POST['hydro_time_4'] != "") {
-    $hydro_time_4 = $_POST['hydro_time_4'];
-} else {
-    $hydro_time_4 = null;
-}
-// $hydro_time_4 = $_POST['hydro_time_4'];
-$hydro_value_1 = $_POST['hydro_value_1'];
-$hydro_value_2 = $_POST['hydro_value_2'];
-$hydro_value_3 = $_POST['hydro_value_3'];
-$hydro_value_4 = $_POST['hydro_value_4'];
-$input_cr_1 = $_POST['input_cr_1'];
-$input_cr_2 = $_POST['input_cr_2'];
-$input_cu_1 = $_POST['input_cu_1'];
-$input_cu_2 = $_POST['input_cu_2'];
-$input_fe_1 = $_POST['input_fe_1'];
-$input_fe_2 = $_POST['input_fe_2'];
-$input_mg_1 = $_POST['input_mg_1'];
-$input_mg_2 = $_POST['input_mg_2'];
-$input_mn_1 = $_POST['input_mn_1'];
-$input_mn_2 = $_POST['input_mn_2'];
-$input_si_1 = $_POST['input_si_1'];
-$input_si_2 = $_POST['input_si_2'];
-$input_ti_b_1 = $_POST['input_ti_b_1'];
-$input_ti_b_2 = $_POST['input_ti_b_2'];
-$input_zn_1 = $_POST['input_zn_1'];
-$input_zn_2 = $_POST['input_zn_2'];
-$me_cr_1 = $_POST['me_cr_1'];
-$me_cr_2 = $_POST['me_cr_2'];
-$me_cr_3 = $_POST['me_cr_3'];
-$me_cu_1 = $_POST['me_cu_1'];
-$me_cu_2 = $_POST['me_cu_2'];
-$me_cu_3 = $_POST['me_cu_3'];
-$me_fe_1 = $_POST['me_fe_1'];
-$me_fe_2 = $_POST['me_fe_2'];
-$me_fe_3 = $_POST['me_fe_3'];
-$me_mg_1 = $_POST['me_mg_1'];
-$me_mg_2 = $_POST['me_mg_2'];
-$me_mg_3 = $_POST['me_mg_3'];
-$me_mn_1 = $_POST['me_mn_1'];
-$me_mn_2 = $_POST['me_mn_2'];
-$me_mn_3 = $_POST['me_mn_3'];
-$me_si_1 = $_POST['me_si_1'];
-$me_si_2 = $_POST['me_si_2'];
-$me_si_3 = $_POST['me_si_3'];
-$me_ti_b_1 = $_POST['me_ti_b_1'];
-$me_ti_b_2 = $_POST['me_ti_b_2'];
-$me_ti_b_3 = $_POST['me_ti_b_3'];
-$me_zn_1 = $_POST['me_zn_1'];
-$me_zn_2 = $_POST['me_zn_2'];
-$me_zn_3 = $_POST['me_zn_3'];
-$melting_end = $_POST['melting_end'];
-$melting_gas_end = $_POST['melting_gas_end'];
-$melting_gas_start = $_POST['melting_gas_start'];
-$melting_start = $_POST['melting_start'];
-$melting_temp = $_POST['melting_temp'];
-$product_date = $_POST['product_date'];
-$product_dim = $_POST['product_dim'];
-$product_type = $_POST['product_type'];
-$refined_time_1 = $_POST['refined_time_1'];
-$refined_time_2 = $_POST['refined_time_2'];
-$water_temp = $_POST['water_temp'];
-$casting_speed = $_POST['casting_speed'];
-$oil_preasure = $_POST['oil_preasure'];
+$production_number_id = $_POST['production_number_id'];
+$production_date = $_POST['production_date'];
+$production_time_start = $_POST['production_time_start'];
+$production_time_end = $_POST['production_time_end'];
 $staff_id = $_POST['staff_id'];
-$datetime = date("Y-m-d H:i:s");
+$ordersheet_id = $_POST['ordersheet_id'];
+$die_number_id = $_POST['die_number_id'];
+$die_status_id = $_POST['die_status_id'];
+$die_status_note = $_POST['die_status_note'];
+$plug_number_id = $_POST['plug_number_id'];
+$plug_status_id = $_POST['plug_status_id'];
+$plug_status_note = $_POST['plug_status_note'];
+$buloong_a1 = $_POST['buloong_a1'];
+$buloong_a2 = $_POST['buloong_a2'];
+$buloong_b1 = $_POST['buloong_b1'];
+$buloong_b2 = $_POST['buloong_b2'];
+$buloong_c1 = $_POST['buloong_c1'];
+$buloong_c2 = $_POST['buloong_c2'];
+$buloong_d1 = $_POST['buloong_d1'];
+$buloong_d2 = $_POST['buloong_d2'];
+$conveyor_height = $_POST['conveyor_height'];
+$conveyor_height_note = $_POST['conveyor_height_note'];
+$compress_dim = $_POST['compress_dim'];
+$compress_dim_note = $_POST['compress_dim_note'];
+$compress_pressure = $_POST['compress_pressure'];
+$compress_pressure_note = $_POST['compress_pressure_note'];
+$clamp_pressure = $_POST['clamp_pressure'];
+$clamp_pressure_note = $_POST['clamp_pressure_note'];
+$start_pull_speed = $_POST['start_pull_speed'];
+$main_pull_speed = $_POST['main_pull_speed'];
+$end_pull_speed = $_POST['end_pull_speed'];
+$pusher_speed = $_POST['pusher_speed'];
+$cutting_date = $_POST['cutting_date'];
+$cutting_staff_id = $_POST['cutting_staff_id'];
+$file_url = $_POST['file_url'];
 try {
-    $sql = "INSERT INTO t_casting
-    (air_pressure, al_temp_cast, al_temp_gate, aluminium_ingot, aluminium_orther,
-    break_time, casting_end, casting_scrap, casting_start, code, extrusion_scrap,
-    file_url, flux_1, flux_2, hydro_time_1, hydro_time_2, hydro_time_3, hydro_time_4,
-    hydro_value_1, hydro_value_2, hydro_value_3, hydro_value_4, input_cr_1, input_cr_2,
-    input_cu_1, input_cu_2, input_fe_1, input_fe_2, input_mg_1, input_mg_2, input_mn_1,
-    input_mn_2, input_si_1, input_si_2, input_ti_b_1, input_ti_b_2, input_zn_1, input_zn_2,
-    me_cr_1, me_cr_2, me_cr_3, me_cu_1, me_cu_2, me_cu_3, me_fe_1, me_fe_2, me_fe_3,
-    me_mg_1, me_mg_2, me_mg_3, me_mn_1, me_mn_2, me_mn_3, me_si_1, me_si_2, me_si_3,
-    me_ti_b_1, me_ti_b_2, me_ti_b_3, me_zn_1, me_zn_2, me_zn_3, melting_end,
-    melting_gas_end, melting_gas_start, melting_start, melting_temp, product_date, product_dim,
-    product_type, refined_time_1, refined_time_2, water_temp, oil_preasure, casting_speed, staff_id) VALUES 
-    ('$air_pressure', '$al_temp_cast', '$al_temp_gate', '$aluminium_ingot', '$aluminium_orther',
-    '$break_time', '$casting_end', '$casting_scrap', '$casting_start', '$code', '$extrusion_scrap',
-    '$file_url', '$flux_1', '$flux_2', '$hydro_time_1', '$hydro_time_2', '$hydro_time_3', '$hydro_time_4',
-    '$hydro_value_1', '$hydro_value_2', '$hydro_value_3', '$hydro_value_4', '$input_cr_1', '$input_cr_2',
-    '$input_cu_1', '$input_cu_2', '$input_fe_1', '$input_fe_2', '$input_mg_1', '$input_mg_2', '$input_mn_1',
-    '$input_mn_2', '$input_si_1', '$input_si_2', '$input_ti_b_1', '$input_ti_b_2', '$input_zn_1', '$input_zn_2',
-    '$me_cr_1', '$me_cr_2', '$me_cr_3', '$me_cu_1', '$me_cu_2', '$me_cu_3', '$me_fe_1', '$me_fe_2', '$me_fe_3',
-    '$me_mg_1', '$me_mg_2', '$me_mg_3', '$me_mn_1', '$me_mn_2', '$me_mn_3', '$me_si_1', '$me_si_2', '$me_si_3',
-    '$me_ti_b_1', '$me_ti_b_2', '$me_ti_b_3', '$me_zn_1', '$me_zn_2', '$me_zn_3', '$melting_end',
-    '$melting_gas_end', '$melting_gas_start', '$melting_start', '$melting_temp', '$product_date', '$product_dim',
-    '$product_type', '$refined_time_1', '$refined_time_2', '$water_temp', '$oil_preasure', '$casting_speed', '$staff_id')";
+    $sql = "INSERT INTO t_drawing (
+                production_number_id, production_date, production_time_start, production_time_end, 
+                staff_id, ordersheet_id, die_number_id, die_status_note, plug_number_id, plug_status_note, die_status_id, plug_status_id,
+                buloong_a1, buloong_a2, buloong_b1, buloong_b2, buloong_c1, buloong_c2, 
+                buloong_d1, buloong_d2, conveyor_height, conveyor_height_note, compress_dim, compress_dim_note, 
+                compress_pressure, compress_pressure_note, clamp_pressure, clamp_pressure_note, 
+                start_pull_speed, main_pull_speed, end_pull_speed, pusher_speed, cutting_date, cutting_staff_id, file_url) 
+            VALUES (
+                '$production_number_id','$production_date','$production_time_start','$production_time_end',
+                '$staff_id','$ordersheet_id','$die_number_id','$die_status_note','$plug_number_id','$plug_status_note', '$die_status_id', '$plug_status_id',
+                '$buloong_a1','$buloong_a2','$buloong_b1','$buloong_b2','$buloong_c1','$buloong_c2',
+                '$buloong_d1','$buloong_d2','$conveyor_height','$conveyor_height_note','$compress_dim','$compress_dim_note',
+                '$compress_pressure','$compress_pressure_note','$clamp_pressure','$clamp_pressure_note',
+                '$start_pull_speed','$main_pull_speed','$end_pull_speed','$pusher_speed','$cutting_date','$cutting_staff_id','$file_url')";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
 
-
-    $stmt = $dbh->getInstance()->prepare("SELECT MAX(t_casting.id) AS id FROM t_casting");
+    $stmt = $dbh->getInstance()->prepare("SELECT MAX(t_drawing.id) AS id FROM t_drawing");
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
 } 

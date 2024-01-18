@@ -18,11 +18,7 @@ tbody th {
 td, th {
   padding: 0;
 }
-#input_table_1 tr td {
-  display:flex;
-  flex-direction: row;
-  align-items: baseline;
-}
+
 table input {
   padding: 0;
   width: 50px;
@@ -174,19 +170,35 @@ button {
 .left__wrapper tbody {
   overflow-y: unset;
 }
-
+#input_table_1 tr td,
+#input_table_2 tr td,
+#input_table_3 tr td,
+#input_table_4 tr td {
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+}
 #input_table_1 tr th:nth-child(1),
-#input_table_1 tr td:nth-child(1) {
+#input_table_1 tr td:nth-child(1),
+#input_table_2 tr th:nth-child(1),
+#input_table_2 tr td:nth-child(1),
+#input_table_3 tr th:nth-child(1),
+#input_table_3 tr td:nth-child(1),
+#input_table_4 tr th:nth-child(1),
+#input_table_4 tr td:nth-child(1) {
   width: 70px;
 }
 #input_table_1 tr th:nth-child(2),
-#input_table_1 tr td:nth-child(2) {
+#input_table_1 tr td:nth-child(2),
+#input_table_2 tr th:nth-child(2),
+#input_table_2 tr td:nth-child(2),
+#input_table_3 tr th:nth-child(2),
+#input_table_3 tr td:nth-child(2),
+#input_table_4 tr th:nth-child(2),
+#input_table_4 tr td:nth-child(2) {
   width: 160px;
 }
-#input_table_1 tr th:nth-child(2),
-#input_table_1 tr td:nth-child(2) {
-  width: 160px;
-}
+
 #select_rack_table tbody {
   height: 90px;
   width: 205px;
@@ -206,9 +218,8 @@ button {
 }
 
 #input_rack_table tbody {
-  height: 335px;
+  height: 375px;
   width: 260px;
-  border-bottom: dotted 1px #0000cc;
 }
 #input_rack_table tr th:nth-child(1),
 #input_rack_table tr td:nth-child(1) {
@@ -272,6 +283,13 @@ button {
 #profile_cut_table tr td:nth-child(5) {
   width: 50px;
 }
+#profile_cut_table tr td:nth-child(3) input,
+#profile_cut_table tr td:nth-child(4) input {
+  width: 48px;
+  padding: 0;
+  margin: 0;
+
+}
 
 #add_profile_cut_table tbody {
   height: 310px;
@@ -332,171 +350,27 @@ button {
 #summary__table tr td:nth-child(1) {
   display: none;
 }
-
-/* date */
 #summary__table tr th:nth-child(2),
 #summary__table tr td:nth-child(2) {
-  width: 40px;
+  width: 100px;
   text-align: center;
 }
-/* Press Number */
 #summary__table tr th:nth-child(3),
 #summary__table tr td:nth-child(3) {
-  width: 20px;
+  width: 150px;
 }
 #summary__table tr td:nth-child(3) {
   text-align: center;
 }
-/* Die Name */
 #summary__table tr th:nth-child(4),
-#summary__table tr td:nth-child(4) {
-  width: 100px;
-}
-#summary__table tr td:nth-child(4) {
-  text-align: left;
-}
-/* Die_id */
+#summary__table tr td:nth-child(4),
 #summary__table tr th:nth-child(5),
 #summary__table tr td:nth-child(5) {
-  display: none;
+  width: 60px;
 }
-/* Order Sheet */
 #summary__table tr th:nth-child(6),
-#summary__table tr td:nth-child(6) {
-  width: 100px;
-}
-/* Press Type */
+#summary__table tr td:nth-child(6),
 #summary__table tr th:nth-child(7),
 #summary__table tr td:nth-child(7) {
-  width: 25px;
+  width: 100px;
 }
-
-#summary__table tr td:nth-child(7) {
-  text-align: center;
-  font-family: "MS ゴシック";
-}
-
-/* Press Type_id */
-
-#summary__table tr th:nth-child(8),
-#summary__table tr td:nth-child(8) {
-  display: none;
-}
-/* is Washed */
-#summary__table tr th:nth-child(9),
-#summary__table tr td:nth-child(9) {
-  width: 42px;
-}
-
-#summary__table tr td:nth-child(9) {
-  text-align: center;
-}
-
-/* is Washed_id */
-
-#summary__table tr th:nth-child(10),
-#summary__table tr td:nth-child(10) {
-  display: none;
-}
-
-/* billet lot */
-
-#summary__table tr th:nth-child(11),
-#summary__table tr td:nth-child(11) {
-  width: 130px;
-}
-
-/* B/S */
-
-#summary__table tr th:nth-child(12),
-#summary__table tr td:nth-child(12) {
-  width: 23px;
-}
-
-#summary__table tr td:nth-child(12) {
-  text-align: right;
-}
-
-/* Billet Length */
-
-#summary__table tr th:nth-child(13),
-#summary__table tr td:nth-child(13) {
-  width: 35px;
-}
-
-#summary__table tr td:nth-child(13) {
-  text-align: right;
-}
-
-/* Plan Billet Qty */
-
-#summary__table tr th:nth-child(14),
-#summary__table tr td:nth-child(14) {
-  width: 37px;
-}
-
-#summary__table tr td:nth-child(14) {
-  text-align: right;
-}
-
-/* Actual Billet Qty */
-
-#summary__table tr th:nth-child(15),
-#summary__table tr td:nth-child(15) {
-  width: 37px;
-}
-
-#summary__table tr td:nth-child(15) {
-  text-align: right;
-}
-
-/* Stop Cause */
-
-#summary__table tr th:nth-child(16),
-#summary__table tr td:nth-child(16) {
-  width: 150px;
-}
-
-#summary__table tr td:nth-child(16) {
-  text-align: right;
-}
-
-/* Start Finish time */
-
-#summary__table tr th:nth-child(17),
-#summary__table tr td:nth-child(17),
-#summary__table tr th:nth-child(18),
-#summary__table tr td:nth-child(18) {
-  width: 48px;
-}
-
-#summary__table tr td:nth-child(17),
-#summary__table tr td:nth-child(18) {
-  text-align: right;
-}
-
-/* Ramspeed Dietemp */
-
-#summary__table tr th:nth-child(19),
-#summary__table tr td:nth-child(19),
-#summary__table tr th:nth-child(20),
-#summary__table tr td:nth-child(20) {
-  width: 50px;
-}
-#summary__table tr td:nth-child(22) {
-  display: none;
-}
-
-#summary__table tr td:nth-child(19),
-#summary__table tr td:nth-child(20) {
-  text-align: right;
-}
-/* Press Directive Sheet */
-#summary__table tr th:nth-child(21),
-#summary__table tr td:nth-child(21) {
-  width: 50px;
-}
-#summary__table tr td:nth-child(21) {
-  text-align: center;
-}
-

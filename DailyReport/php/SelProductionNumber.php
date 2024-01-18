@@ -7,13 +7,13 @@
     $production_number = $_POST['production_number'];
     try {
         $sql = "SELECT 
-        extrusion.m_production_numbers.id,
-        extrusion.m_production_numbers.production_number
+        tube_drawing.m_production_numbers.id,
+        tube_drawing.m_production_numbers.ex_production_numbers_id,
+        tube_drawing.m_production_numbers.production_number
     FROM
-        extrusion.m_production_numbers
-    WHERE 
-        extrusion.m_production_numbers.is_drawing IS NOT NULL
-        AND extrusion.m_production_numbers.production_number LIKE '%$production_number%'";
+        tube_drawing.m_production_numbers
+    WHERE
+        tube_drawing.m_production_numbers.production_number LIKE '%$production_number%'";
         $stmt = $dbh->getInstance()->prepare($sql);
         $stmt->execute();
         echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
