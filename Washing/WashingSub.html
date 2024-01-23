@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homogenizing Preview</title>
+    <title>DailyReport Preview</title>
     <style type="text/css">
       body {
         width: 600px;
@@ -25,7 +25,9 @@
         if (file) {
           var fileType = file.name.substr(file.name.lastIndexOf(".") + 1, 3);
         var reader = new FileReader(file);
+
         reader.readAsDataURL(file);
+
         reader.onload = function () {
           switch (fileType) {
             case "pdf":
@@ -53,7 +55,7 @@
           $("<object>")
             .attr(
               "data",
-              "../FileUpload/Homo/" + filename +
+              "../FileUpload/DailyReport/" + filename +
                 "#toolbar=0&navpanes=0"
             )
             .attr("type", "application/pdf")
@@ -62,7 +64,7 @@
         case "jpg":
         case "JPG":
           $("<object>")
-            .attr("data", "../FileUpload/Homo/" + filename)
+            .attr("data", "../FileUpload/DailyReport/" + filename)
             .attr("type", "image/jpeg")
             .appendTo("body");
           break;

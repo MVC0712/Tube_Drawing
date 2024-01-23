@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Washing Page</title>
+    <link rel="stylesheet" href="../Lib/main.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>Washing Input</header>
+    <div class="main__wrapper">
+      <div class="left__wrapper">
+        <div>
+          <table id="input_table_1">
+            <thead>
+              <tr>
+                <th>Product date</th>
+                <td><input type="date" id="product_date" class="no-input save-data need clear"></td>
+              </tr>
+              <tr>
+                <th>Nồng độ HC (%)</th>
+                <td><input type="number" id="chemical_concentration" class="no-input save-data need clear"></td>
+              </tr>
+              <tr>
+                <th>TG ngâm (Phút)</th>
+                <td><input type="number" id="soaking_time" class="no-input save-data need clear"></td>
+              </tr>
+              <tr>
+                <th>Nhiệt độ ngâm (°C)</th>
+                <td><input type="number" id="soaking_temperature" class="no-input save-data need clear"></td>
+              </tr>
+              <tr>
+                <th>Nhiệt độ sấy (°C)</th>
+                <td><input type="number" id="drying_temperature" class="no-input save-data need clear"></td>
+              </tr>
+            </thead>
+          </table>
+
+          <table id="washing_date__table">
+            <thead>
+              <tr>
+                <th>Product date</th>
+                <th>Data</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mid__wrapper">
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Người thực hiện</th>
+                <th>Bắt đầu</th>
+                <th>Kết thúc</th>
+              </tr>
+              <tr>
+                <td><select id="staff_id"></select></td>
+                <td><input type="time" id="start_time"></td>
+                <td><input type="time" id="end_time"></td>
+              </tr>
+              </thead>
+              <thead>
+              <tr>
+                <th>Mã sản phẩm</th>
+                <th>Ngày kéo</th>
+                <th>Ống đầu</th>
+                <th>Ống cuối</th>
+                <th>SL/lồng</th>
+                <th rowspan="2"><button id="add_new_line">Add</button></th>
+              </tr>
+              <tr>
+                <td><select id="production_number_id"></select></td>
+                <td><input type="date" id="drawing_date"></td>
+                <td><input type="text" id="start_tube"></td>
+                <td><input type="text" id="end_tube"></td>
+                <td><input type="text" id="quantity"></td>
+              </tr>
+            </thead>
+          </table>
+          <table id="add_new__table">
+            <thead>
+              <tr>
+                <th>Stt</th>
+                <th>Mã sản phẩm</th>
+                <th>Ngày kéo</th>
+                <th>Ống đầu</th>
+                <th>Ống cuối</th>
+                <th>SL/lồng</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="button__wrapper">
+            <button id="save__button" disabled>Save</button>
+            <button id="update__button" disabled>Update</button>
+          </div>
+          <table>
+            <thead></thead>
+          </table>
+        </div>
+      </div>
+      <div class="right__wrapper">
+        <table id="output_rack_table">
+          <thead>
+            <tr><th></th><th colspan="5">Output</th></tr>
+            <tr>
+              <th>id</th>
+              <th>Order</th>
+              <th>Rack number</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table> 
+        <div class="input-block__outer">
+          <div class="input__title">Rack</div>
+          <input id="racknumber__input" class="need-clear no-input" type="text"/>
+          <div class="input__title">Qty</div>
+          <input id="rackqty__input" class="need-clear no-input" type="text" />
+          <button id="add_rack__button" disabled>Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="button__wrapper">
+      <button id="save__button" disabled>Save</button>
+      <button id="update__button" disabled>Update</button>
+    </div>
+    <script src="../Lib/jquery.min.js"></script>
+    <script src="./scr/index.js"></script>
+  </body>
+</html>
