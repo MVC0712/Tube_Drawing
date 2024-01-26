@@ -33,7 +33,10 @@
               </tr>
               <tr>
                 <th>Nhiệt độ sấy (°C)</th>
-                <td><input type="number" id="drying_temperature" class="no-input save-data need clear"></td>
+                <td>
+                  <input type="number" id="drying_temperature" class="no-input save-data need clear">
+                  <button id="save_washing_date" disabled>Save</button>
+                </td>
               </tr>
             </thead>
           </table>
@@ -41,6 +44,7 @@
           <table id="washing_date__table">
             <thead>
               <tr>
+                <th>id</th>
                 <th>Product date</th>
                 <th>Data</th>
               </tr>
@@ -57,35 +61,38 @@
                 <th>Người thực hiện</th>
                 <th>Bắt đầu</th>
                 <th>Kết thúc</th>
+                <th>Ngày kéo</th>
               </tr>
-              <tr>
-                <td><select id="staff_id"></select></td>
-                <td><input type="time" id="start_time"></td>
-                <td><input type="time" id="end_time"></td>
+              <tr class="need-check">
+                <td><select id="staff_id" class="no-input save-data need-clear save-data-data"></select></td>
+                <td><input type="time" id="start_time" class="no-input save-data need-clear save-data-data"></td>
+                <td><input type="time" id="end_time" class="no-input save-data need-clear save-data-data"></td>
+                <td><input type="date" id="drawing_date" class="no-input save-data need-clear save-data-data"></td>
               </tr>
               </thead>
               <thead>
               <tr>
                 <th>Mã sản phẩm</th>
-                <th>Ngày kéo</th>
+                <th>Giờ kéo</th>
                 <th>Ống đầu</th>
                 <th>Ống cuối</th>
                 <th>SL/lồng</th>
-                <th rowspan="2"><button id="add_new_line">Add</button></th>
               </tr>
               <tr>
-                <td><select id="production_number_id"></select></td>
-                <td><input type="date" id="drawing_date"></td>
-                <td><input type="text" id="start_tube"></td>
-                <td><input type="text" id="end_tube"></td>
-                <td><input type="text" id="quantity"></td>
+                <td><select id="production_number_id" class="no-input save-data need-clear"></select></td>
+                <td><select id="drawing_id" class="no-input save-data need-clear" style="width: 60px;"></select></td>
+                <td><input type="text" id="start_tube" class="no-input save-data need-clear"></td>
+                <td><input type="text" id="end_tube" class="no-input save-data need-clear"></td>
+                <td style="display: flex;">
+                  <input type="number" id="quantity" class="no-input save-data need-clear">
+                  <button id="add_new_line" disabled>Add</button></td>
               </tr>
             </thead>
           </table>
           <table id="add_new__table">
             <thead>
               <tr>
-                <th>Stt</th>
+                <th>Prdid</th>
                 <th>Mã sản phẩm</th>
                 <th>Ngày kéo</th>
                 <th>Ống đầu</th>
@@ -99,9 +106,10 @@
             <button id="save__button" disabled>Save</button>
             <button id="update__button" disabled>Update</button>
           </div>
-          <table>
+          <!-- <table id="washing_data__table">
             <thead></thead>
-          </table>
+            <tbody></tbody>
+          </table> -->
         </div>
       </div>
       <div class="right__wrapper">
@@ -131,6 +139,23 @@
       <button id="save__button" disabled>Save</button>
       <button id="update__button" disabled>Update</button>
     </div>
+    <table id="washing_data__table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Staff</th>
+          <th>Start</th>
+          <th>Finish</th>
+          <th>Stt</th>
+          <th>Production number</th>
+          <th>Drawing at</th>
+          <th>Start tube</th>
+          <th>End tube</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
     <script src="../Lib/jquery.min.js"></script>
     <script src="./scr/index.js"></script>
   </body>

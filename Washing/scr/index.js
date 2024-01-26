@@ -33,20 +33,14 @@ const getDateTime = (date) => {
     const mins = getTwoDigits(date.getMinutes());
     return `${year}${month}${day}${hours}${mins}00`;
 }
-// makeSummaryTable()
-// selStaffDrawing();
-// selStaffCutting();
-// SelDrawingType();
-// SelProductionNumber();
-// SelStatus();
-// SelDies();
-// SelPlugs();
+SelWashing();
+selStaffWashing();
+SelProductionNumber();
 
 
 function selStaffWashing() {
   var fileName = "SelStaff.php";
   var sendData = {
-    staff: $("#staff").val(),
   };
   myAjax.myAjax(fileName, sendData);
   $("#staff_id option").remove();
@@ -60,42 +54,102 @@ function selStaffWashing() {
 function SelProductionNumber() {
   var fileName = "SelProductionNumber.php";
   var sendData = {
-    production_number: $("#production_number").val(),
   };
   myAjax.myAjax(fileName, sendData);
   $("#production_number_id option").remove();
   $("#production_number_id").append($("<option>").val(0).html("NO"));
   ajaxReturnData.forEach(function(value) {
       $("#production_number_id").append(
-          $("<option>").val(value["id"] + "-" + value["ex_production_numbers_id"]).html(value["production_number"])
+          $("<option>").val(value["id"]).html(value["production_number"])
       );
   });
 };
-$(document).on("keyup", "#production_number", function() {
-  SelProductionNumber();
+function SelProductionNumberByDrawing() {
+  var fileName = "SelProductionNumberByDrawing.php";
+  var sendData = {
+    drawing_date: $("#drawing_date").val(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  $("#production_number_id option").remove();
+  $("#production_number_id").removeClass("complete-input").addClass("no-input");
+  $("#production_number_id").append($("<option>").val(0).html("NO"));
+  ajaxReturnData.forEach(function(value) {
+      $("#production_number_id").append(
+          $("<option>").val(value["production_number_id"]).html(value["production_number"])
+      );
+  });
+  SelDrawingTime();
+};
+function SelDrawingTime() {
+  var fileName = "SelDrawingTime.php";
+  var sendData = {
+    drawing_date: $("#drawing_date").val(),
+    production_number_id: $("#production_number_id").val(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  $("#drawing_id option").remove();
+  $("#drawing_id").removeClass("complete-input").addClass("no-input");
+  $("#drawing_id").append($("<option>").val(0).html("NO"));
+  ajaxReturnData.forEach(function(value) {
+      $("#drawing_id").append(
+          $("<option>").val(value["id"]).html(value["production_time_start"])
+      );
+  });
+};
+$(document).on("change", "#drawing_date", function() {
+  SelProductionNumberByDrawing();
 });
-$(document).on("keyup", "#plug_number", function() {
-  SelPlugs();
+$(document).on("change", "#production_number_id", function() {
+  SelDrawingTime();
 });
 
 $("#add_new_line").on("click", function () {
   trNumber = $("#add_new__table tbody tr").length;
   $("<tr>")
-    .append("<td></td>")
-    .append("<td>" + (trNumber + 1) + "</td>")
-    .append("<td>" + $("#production_number_id").val() + "</td>")
+    .append("<td>" + $("#drawing_id").val() + "</td>")
+    .append("<td>" + $("#production_number_id").find(":selected").html() + "</td>")
     .append("<td>" + $("#drawing_date").val() + "</td>")
     .append("<td>" + $("#start_tube").val() + "</td>")
     .append("<td>" + $("#end_tube").val() + "</td>")
     .append("<td>" + $("#quantity").val() + "</td>")
     .appendTo("#add_new__table tbody");
   $(this).prop("disabled", true);
-  $("#racknumber__input")
-    .val("")
-    .focus()
-    .removeClass("complete-input")
-    .addClass("no-input");
+  $("#production_number_id").val(0).focus().removeClass("complete-input").addClass("no-input");
+  $("#drawing_id").val(0).removeClass("complete-input").addClass("no-input");
+  $("#drawing_date").val("").removeClass("complete-input").addClass("no-input");
+  $("#start_tube").val("").removeClass("complete-input").addClass("no-input");
+  $("#end_tube").val("").removeClass("complete-input").addClass("no-input");
   $("#quantity").val("").removeClass("complete-input").addClass("no-input");
+});
+$(document).on("click", "#add_new__table tbody tr", function () {
+  if (!$(this).hasClass("selected-record")) {
+    $(this).parent().find("tr").removeClass("selected-record");
+    $(this).addClass("selected-record");
+  } else {
+    $(this).remove();
+  }
+});
+$(document).on("click", "#washing_date__table tbody tr", function () {
+  if (!$(this).hasClass("selected-record")) {
+    $(this).parent().find("tr").removeClass("selected-record");
+    $(this).addClass("selected-record");
+    $("#washing_date_selected__tr").removeAttr("id");
+    $(this).attr("id", "washing_date_selected__tr");
+  } else {
+  }
+  fileName = "SelWashingData.php";
+  sendData = {
+    washing_id: $("#washing_date_selected__tr").find("td").eq(0).html(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  console.log(ajaxReturnData);
+
+  fillTableBody(ajaxReturnData, $("#washing_data__table tbody"));
+  mergeTableCell(1);
+  mergeTableCell(2);
+  mergeTableCell(3);
+
+  checkInput();
 });
 
 $("#racknumber__input").on("keydown", function (e) {
@@ -336,34 +390,17 @@ $(document).on("change keyup", ".complete-input", function() {
       $(this).removeClass("no-input").addClass("complete-input");
   }
 });
-$(document).on("keyup", ".number-input", function() {
-  if($.isNumeric($(this).val())){
-      $(this).removeClass("no-input").addClass("complete-input");
-  } else {
-      $(this).removeClass("complete-input").addClass("no-input");
-  }
-  checkInput();
-  checkUpdate();
-});
 function checkInput() {
   var check = true;
-  $(".left__wrapper .save-data").each(function() {
+  $(".mid__wrapper .need-check .save-data-data").each(function() {
     if ($(this).hasClass("no-input")) {
       check = false;
     }
   });
-  $(".left__wrapper select").each(function() {
-    if ($(this).hasClass("no-input")) {
-      check = false;
-    }
-  });
-  if ($("#summary__table tbody tr").hasClass("selected-record")) {
+  if (!($("#washing_date__table tbody tr").hasClass("selected-record"))) {
     check = false;
   }
-  if (Number($("#input_rack_table tbody tr").length) == 0) {
-    check = false;
-  }
-  if (Number($("#profile_cut_table tbody tr").length) == 0) {
+  if (Number($("#add_new__table tbody tr").length) == 0) {
     check = false;
   }
   if (check) {
@@ -463,6 +500,8 @@ function getTableData(tableTrObj) {
 $(document).on("keyup change", ".save-data", function() {
   checkInput();
   checkUpdate();
+  checkInputWashingDate();
+  checkInputWashingData();
 });
 
 function getInputData() {
@@ -503,27 +542,24 @@ function clearInputData() {
 }
 
 $(document).on("click", "#save__button", function () {
-  fileName = "InsData.php";
-  inputData = getInputData();
-  sendData = inputData;
-  myAjax.myAjax(fileName, sendData);
-  let targetId = ajaxReturnData[0]["id"];
-  inputTableData = getTableData($("#input_rack_table tbody tr"));
-  inputTableData.push(targetId);
-  fileName = "InsRackData.php";
-  sendData = JSON.stringify(inputTableData);
-  console.log(sendData);
+  var fileName = "InsWashingCase.php";
+  var sendData = {
+    washing_id: $("#washing_date_selected__tr").find("td").eq(0).html(),
+    staff_id: $("#staff_id").val(),
+    start_time: $("#start_time").val(),
+    end_time: $("#end_time").val(),
+  };
   myAjax.myAjax(fileName, sendData);
 
-  cutTableData = getTableData($("#profile_cut_table tbody tr"));
-  cutTableData.push(targetId);
-  fileName = "InsCutData.php";
-  sendData = JSON.stringify(cutTableData);
-  console.log(sendData);
+  let washing_case_id = ajaxReturnData[0]["id"];
+
+  washingData = getTableData($("#add_new__table tbody tr"));
+  washingData.push(washing_case_id);
+  fileName = "InsWashingData.php";
+  sendData = JSON.stringify(washingData);
   myAjax.myAjax(fileName, sendData);
   $("#save__button").attr("disabled", true);
-  clearInputData();
-  makeSummaryTable();
+  $("#add_new__table tbody").empty();
 });
 $(document).on("click", "#update__button", function () {
   fileName = "UpdateData.php";
@@ -540,10 +576,6 @@ function putDataToInput(data) {
     Object.keys(trVal).forEach(function (tdVal) {
       $("#" + tdVal).val(trVal[tdVal]);
     });
-    SelDies();
-    SelPlugs();
-    $("#die_number_id").val(trVal["die_number_id"]); 
-    $("#plug_number_id").val(trVal["plug_number_id"]); 
   });
   $("#file_url").html(data[0].file_url);
 };
@@ -554,3 +586,66 @@ $(document).on("click", "#directive__input", function () {
     "width=830, height=500,toolbar=yes,menubar=yes,scrollbars=no"
   );
 });
+
+function checkInputWashingDate() {
+  var check = true;
+  $(".left__wrapper .save-data").each(function() {
+    if ($(this).hasClass("no-input")) {
+      check = false;
+    }
+  });
+  if (check) {
+    $("#save_washing_date").attr("disabled", false);
+  } else {
+    $("#save_washing_date").attr("disabled", true);
+  }
+  return check;
+};
+function checkInputWashingData() {
+  var check = true;
+  $(".mid__wrapper .save-data").each(function() {
+    if ($(this).hasClass("no-input")) {
+      check = false;
+    }
+  });
+  if (check) {
+    $("#add_new_line").attr("disabled", false);
+  } else {
+    $("#add_new_line").attr("disabled", true);
+  }
+  return check;
+};
+
+$(document).on("click", "#save_washing_date", function () {
+  var fileName = "InsWashing.php";
+  var sendData = {
+    product_date: $("#product_date").val(),
+    chemical_concentration: $("#chemical_concentration").val(),
+    soaking_time: $("#soaking_time").val(),
+    soaking_temperature: $("#soaking_temperature").val(),
+    drying_temperature: $("#drying_temperature").val(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  SelWashing();
+});
+function SelWashing() {
+  var fileName = "SelWashing.php";
+  var sendData = {
+  };
+  myAjax.myAjax(fileName, sendData);
+  fillTableBody(ajaxReturnData, $("#washing_date__table tbody"));
+};
+
+function mergeTableCell(cell) {
+  const table = document.getElementById("washing_data__table");
+  let headerCell = null;
+  for (let row of table.rows) {
+    const firstCell = row.cells[cell];
+    if (headerCell === null || firstCell.innerText !== headerCell.innerText) {
+      headerCell = firstCell;
+    } else {
+      headerCell.rowSpan++;
+      firstCell.classList.add("no-display");
+    }
+  }
+};
