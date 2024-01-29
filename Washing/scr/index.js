@@ -102,7 +102,17 @@ $(document).on("change", "#drawing_date", function() {
 $(document).on("change", "#production_number_id", function() {
   SelDrawingTime();
 });
-
+function selWashingData() {
+  fileName = "SelWashingData.php";
+  sendData = {
+    washing_id: $("#washing_date_selected__tr").find("td").eq(0).html(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  fillTableBody(ajaxReturnData, $("#washing_data__table tbody"));
+  mergeTableCell(1);
+  mergeTableCell(2);
+  mergeTableCell(3);
+};
 $("#add_new_line").on("click", function () {
   trNumber = $("#add_new__table tbody tr").length;
   $("<tr>")
@@ -137,50 +147,34 @@ $(document).on("click", "#washing_date__table tbody tr", function () {
     $(this).attr("id", "washing_date_selected__tr");
   } else {
   }
-  fileName = "SelWashingData.php";
-  sendData = {
-    washing_id: $("#washing_date_selected__tr").find("td").eq(0).html(),
-  };
-  myAjax.myAjax(fileName, sendData);
-  console.log(ajaxReturnData);
-
-  fillTableBody(ajaxReturnData, $("#washing_data__table tbody"));
-  mergeTableCell(1);
-  mergeTableCell(2);
-  mergeTableCell(3);
-
+  selWashingData();
+  makeRackTable();
   checkInput();
+  checkRackInputComplete();
 });
-
-$("#racknumber__input").on("keydown", function (e) {
-  var k = e.keyCode;
-  var str = String(k);
-  if (k === 13 && $(this).hasClass("complete-input")) {
-    $("#rackqty__input").focus();
-    return false;
+$(document).on("click", "#washing_data__table tbody tr", function () {
+  if (!$(this).hasClass("data_selected-record")) {
+    // $(this).parent().find("tr").removeClass("data_selected-record");
+    $(this).addClass("data_selected-record");
+    // $("#washing_data_selected__tr").removeAttr("id");
+    // $(this).attr("id", "washing_data_selected__tr");
+  } else {
+    $(this).removeClass("data_selected-record");
   }
+  checkRackInputComplete();
 });
 $("#racknumber__input").on("keyup", function () {
   if (!isNaN($(this).val()) &&
     $(this).val() != "" &&
     0 < $(this).val() &&
-    $(this).val() <= 200 &&
-    checkDuplicateRackNumber()) {
+    $(this).val() <= 200) {
     $(this).removeClass("no-input").addClass("complete-input");
   } else {
     $(this).removeClass("complete-input").addClass("no-input");
   }
+  checkRackInputComplete();
 });
-$("#rackqty__input").on("keydown", function (e) {
-  var k = e.keyCode;
-  var str = String(k);
-  keyCodeCheck(str);
-  if (k === 13) {
-    $("#add_rack__button").focus();
-    e.preventDefault();
-    return false;
-  }
-});
+
 $("#rackqty__input").on("keyup", function (e) {
   if (!isNaN($(this).val()) &&
     $(this).val() != "" &&
@@ -189,11 +183,7 @@ $("#rackqty__input").on("keyup", function (e) {
   } else {
     $(this).removeClass("complete-input").addClass("no-input");
   }
-  if (checkRackInputComplete()) {
-    $("#add_rack__button").prop("disabled", false);
-  } else {
-    $("#add_rack__button").prop("disabled", true);
-  }
+  checkRackInputComplete();
 });
 function checkRackInputComplete() {
   let flag = false;
@@ -203,83 +193,41 @@ function checkRackInputComplete() {
   } else {
     flag = false;
   }
+  if (!($("#washing_date__table tbody tr").hasClass("selected-record"))) {
+    flag = false;
+  }
+  if (!($("#washing_data__table tbody tr").hasClass("data_selected-record"))) {
+    flag = false;
+  }
+  if (flag) {
+    $("#add_rack__button").prop("disabled", false);
+  } else {
+    $("#add_rack__button").prop("disabled", true);
+  }
   return flag;
 };
-function checkDuplicateRackNumber() {
-  var flag = true;
-  var inputValue = $("#racknumber__input").val();
-  $("#output_rack_table tbody tr td:nth-child(3)").each(function (index, value) {
-    if (Number($(this).text()) == inputValue) {
-      flag = false;
-    }
-  });
-  return flag;
-};
-
-function keyCodeCheck(k) {
-  var str = String(k);
-  if (!(str.match(/[0-9]/) ||
-      (37 <= k && k <= 40) ||
-      k === 8 ||
-      k === 46 ||
-      k === 13)
-  ) {return false;
-  } else {return true;}
-};
-
-$("#add_rack__button").on("keydown", function (e) {
-  cancelKeydownEvent = true;
-});
 
 $("#add_rack__button").on("click", function () {
-  let trNumber;
-  let fileName;
-  let sendData = new Object();
-  let order_number;
-  let rackNumberArr = [];
-  switch ($(this).text()) {
-    case "Save":
-      trNumber = $("#output_rack_table tbody tr").length;
-      $("<tr>")
-        .append("<td></td>")
-        .append("<td>" + (trNumber + 1) + "</td>")
-        .append("<td>" + $("#racknumber__input").val() + "</td>")
-        .append("<td>" + $("#rackqty__input").val() + "</td>")
-        .appendTo("#output_rack_table tbody");
-      $(this).prop("disabled", true);
-      $("#racknumber__input")
-        .val("")
-        .focus()
-        .removeClass("complete-input")
-        .addClass("no-input");
-      $("#rackqty__input")
-        .val("")
-        .removeClass("complete-input")
-        .addClass("no-input");
-      break;
-    case "Add":
-      $("#output_rack_table tbody tr td:nth-child(2)").each(function () {
-        rackNumberArr.push(Number($(this).html()));
-      });
-      if (rackNumberArr.length != 0) {
-        order_number = Math.max(...rackNumberArr) + 1;
-      } else {
-        order_number = 1;
-      }
-      fileName = "InsUsingAgingRack.php";
-      sendData = {
-        drawing_id: $("#selected__tr td:nth-child(1)").text(),
-        order_number: order_number,
-        rack_number: $("#racknumber__input").val(),
-        work_quantity: $("#rackqty__input").val(),
-      };
-      myAjax.myAjax(fileName, sendData);
-      makeRackTable();
-      $("#racknumber__input").val("").removeClass("complete-input").addClass("no-input");
-      $("#rackqty__input").val("").removeClass("complete-input").addClass("no-input");
-      $("#add_rack__button").prop("disabled", true);
-      break;
-  }
+  fileName = "InsUsingAgingRack.php";
+  sendData = {
+    washing_output_id: $("#washing_date_selected__tr td:nth-child(1)").text(),
+    rack_number: $("#racknumber__input").val(),
+    work_quantity: $("#rackqty__input").val(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  var rack_id = ajaxReturnData[0]["id"];
+  rackData = getTableDataByClass($("#washing_data__table tbody tr"));
+  rackData.push(rack_id);
+  fileName = "InsRackDataLink.php";
+  sendData = JSON.stringify(rackData);
+  myAjax.myAjax(fileName, sendData);
+
+  makeRackTable();
+  $("#racknumber__input").val("").removeClass("complete-input").addClass("no-input");
+  $("#rackqty__input").val("").removeClass("complete-input").addClass("no-input");
+  $("#add_rack__button").prop("disabled", true);
+
+  $("#washing_data__table tbody tr").removeClass("data_selected-record");
 });
 
 $(document).on("click", "#output_rack_table tbody tr", function () {
@@ -292,6 +240,13 @@ $(document).on("click", "#output_rack_table tbody tr", function () {
   } else {
     deleteDialog.showModal();
   }
+  $("#washing_data__table tbody tr").parent().find("tr").removeClass("data_selected-record");
+  fileName = "SelRackDataLink.php";
+  sendData = {
+    using_aging_rack_id: $("#rack_selected__tr td:nth-child(1)").text()
+  };
+  myAjax.myAjax(fileName, sendData);
+  makeRackDataSelect(ajaxReturnData);
 });
 
 $(document).on("click", "#delete-rack-cancel__button", function () {
@@ -312,43 +267,34 @@ $(document).on("click", "#delete-rack-delete__button", function () {
 });
 
 function makeRackTable() {
-  fileName = "SelRack2.php";
+  fileName = "SelRack.php";
   sendData = {
-    id: $("#selected__tr").find("td").eq(0).html(),
+    id: $("#washing_date_selected__tr").find("td").eq(0).html(),
   };
   myAjax.myAjax(fileName, sendData);
   $("#output_rack_table tbody").empty();
   ajaxReturnData.forEach(function (trVal) {
     var newTr = $("<tr>");
     Object.keys(trVal).forEach(function (tdVal) {
-      if (tdVal == "rack_number" || tdVal == "work_quantity") {
-        $("<td>").append($("<input>").val(trVal[tdVal])).appendTo(newTr);
-      } else {
-        $("<td>").html(trVal[tdVal]).appendTo(newTr);
-      }
+      $("<td>").html(trVal[tdVal]).appendTo(newTr);
     });
     $(newTr).appendTo("#output_rack_table tbody");
   });
 };
 
-function renumberTableColumn() {
-  $("#output_rack_table tbody tr td:nth-child(1)").each(function (index, val) {
-    $(this).text(index + 1);
-  });
-};
+// $(document).on("change", "#output_rack_table tbody tr input", function () {
+//   let sendData = new Object();
+//   let fileName;
+//   fileName = "UpdateUsingAgingRack.php";
+//   sendData = {
+//     id: $("#rack_selected__tr td:nth-child(1)").html(),
+//     rack_number: $("#rack_selected__tr td:nth-child(3) input").val(),
+//     work_quantity: $("#rack_selected__tr td:nth-child(4) input").val(),
+//   };
+//   console.log(sendData);
+//   myAjax.myAjax(fileName, sendData);
+// });
 
-$(document).on("change", "#output_rack_table tbody tr input", function () {
-  let sendData = new Object();
-  let fileName;
-  fileName = "UpdateUsingAgingRack.php";
-  sendData = {
-    id: $("#rack_selected__tr td:nth-child(1)").html(),
-    rack_number: $("#rack_selected__tr td:nth-child(3) input").val(),
-    work_quantity: $("#rack_selected__tr td:nth-child(4) input").val(),
-  };
-  console.log(sendData);
-  myAjax.myAjax(fileName, sendData);
-});
 $("#file_upload").on("change", function () {
   var file = $(this).prop("files")[0];
   $("#file_url").html(getDateTime(new Date())+file.name);
@@ -466,7 +412,6 @@ $(document).on("click", "#summary__table tbody tr", function (e) {
     };
     myAjax.myAjax(fileName, sendData);
     putDataToInput(ajaxReturnData);
-    $("#add_rack__button").text("Add");
     selRackByDrawing();
     selCutByDrawing();
   } else {
@@ -493,6 +438,26 @@ function getTableData(tableTrObj) {
     });
     tr.push(index + 1);
     tableData.push(tr);
+  });
+  return tableData;
+};
+
+function getTableDataByClass(tableTrObj) {
+  var tableData = [];
+  tableTrObj.each(function (index, element) {
+    if ($(this).hasClass("data_selected-record")) {
+      var tr = [];
+      $(this).find("td").each(function (index, element) {
+        if ($(this).find("input").length) {
+          tr.push($(this).find("input").val());
+        } else if ($(this).find("select").length) {
+          tr.push($(this).find("select").val());
+        } else {
+          tr.push($(this).html());
+        }
+      });
+      tableData.push(tr);
+    }
   });
   return tableData;
 };
@@ -648,4 +613,21 @@ function mergeTableCell(cell) {
       firstCell.classList.add("no-display");
     }
   }
+};
+
+function makeRackDataSelect(data) {
+  $("#washing_data__table tbody tr").each(function (index, element) {
+    var tr = $(this);
+    $(this).find("td").each(function (index, element) {
+      if (index == 0) {
+        var id = $(this).html();
+        data.forEach(function(trVal) {
+          if(trVal.washing_data_id == id) {
+            tr.addClass("data_selected-record");
+          } else {
+          }
+        });
+      }
+    });
+  });
 };

@@ -49,7 +49,7 @@ button {
 /* =============page layout=============== */
 .main__wrapper {
   padding: 0;
-  height: 95%;
+  /* height: 95%; */
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -171,7 +171,7 @@ button {
 
 #washing_date__table tbody {
   width: 220px;
-  height: 268px;
+  height: 175px;
 }
 #washing_date__table tr td {
   flex-direction: row;
@@ -198,7 +198,7 @@ button {
 }
 #add_new__table tbody {
   width: 485px;
-  height: 265px;
+  height: 175px;
   overflow: auto;
 }
 #add_new__table tr th:nth-child(1),
@@ -223,7 +223,7 @@ button {
 }
 
 #output_rack_table tbody {
-  height: 330px;
+  height: 240px;
   width: 260px;
 }
 #output_rack_table tr th:nth-child(1),
@@ -245,8 +245,8 @@ button {
 
 
 #washing_data__table tbody {
-  /* width: 485px; */
-  height: 214px;
+  width: 700px;
+  height: 335px;
 }
 #washing_data__table tr th:nth-child(1),
 #washing_data__table tr td:nth-child(1) {
@@ -290,4 +290,8 @@ button {
 
 .no-display {
   display: none;
+}
+
+.data_selected-record td:nth-child(n + 5) {
+  background-color: rgb(253, 1, 253);
 }

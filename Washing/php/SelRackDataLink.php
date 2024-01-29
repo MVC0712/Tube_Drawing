@@ -4,15 +4,12 @@ $dbh = new DBHandler();
 if ($dbh->getInstance() === null) {
     die("No database connection");
 }
-$id = $_POST['id'];
+$using_aging_rack_id = $_POST['using_aging_rack_id'];
 try {
     $sql = "SELECT 
-        extrusion.t_using_aging_rack.id,
-        ROW_NUMBER() OVER (  ORDER BY id  ) AS Seid,
-        extrusion.t_using_aging_rack.rack_number,
-        extrusion.t_using_aging_rack.work_quantity
-    FROM extrusion.t_using_aging_rack
-    WHERE extrusion.t_using_aging_rack.washing_output_id = '$id'";
+        washing_data_id
+    FROM t_rack_data
+    WHERE t_rack_data.using_aging_rack_id = '$using_aging_rack_id'";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
