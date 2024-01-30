@@ -687,7 +687,7 @@ function fillTableBody(data, tbodyDom) {
           // $("<td>").html(trVal[tdVal]).appendTo(newTr);
           if (tdVal == "order_number") {
             $("<th>").html("No." + trVal[tdVal]).appendTo(newTr);
-          } else if ((tdVal == "ng_quantity") || (tdVal == "ok_quantity")) {
+          } else if ((tdVal == "ng_quantityyy") || (tdVal == "ok_quantityyy")) {
             $("<td>").append($("<input type='number'>").val(trVal[tdVal]).addClass("need-clear complete-input")).appendTo(newTr);
           } else {
             $("<td>").html(trVal[tdVal]).appendTo(newTr);

@@ -42,9 +42,14 @@ try {
     main_pull_speed,
     end_pull_speed,
     pusher_speed,
+    puller_force,
     cutting_date,
     cutting_staff_id,
-    file_url
+    file_url,
+    straight,
+    angle,
+    roller_dis,
+    roller_speed
 FROM
     tube_drawing.t_drawing
         LEFT JOIN

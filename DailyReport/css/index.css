@@ -4,7 +4,7 @@ body {
 }
 thead > tr > th {
   border-bottom: 0;
-  height: 20px;
+  height: 18px;
 }
 thead th,
 tbody th {
@@ -32,7 +32,7 @@ input[type="number"]{
 }
 select {
   width: 110px;
-  height: 22px;
+  height: 20px;
   border: 1px solid #0000ff;
 }
 tbody tr.selected-record {
@@ -43,7 +43,7 @@ tbody tr.selected-record input {
   background-color: #dbdbff;
 }
 button {
-  height: 20px;
+  height: 18px;
   width: 100px;
 }
 /* basic setting */
@@ -128,7 +128,7 @@ button {
   cursor: pointer;
   border: solid 1px #0000ff;
   width: 200px;
-  height: 20px;
+  height: 18px;
 }
 #press-direction_file {
   display: none;
@@ -149,7 +149,7 @@ button {
 }
 #preview__button {
   width: 50px;
-  height: 20px;
+  height: 18px;
   margin: 0;
 }
 #add_rack__button {
@@ -163,7 +163,7 @@ button {
 #select_ordersheet {
   padding: 0;
   margin: 0;
-  width: 62px;
+  width: 50px;
 }
 /* =============input elements end =============== */
 /* =============== TABLES  ==================== */
@@ -177,6 +177,7 @@ button {
   display:flex;
   flex-direction: row;
   align-items: baseline;
+  height: 18px;
 }
 #input_table_1 tr th:nth-child(1),
 #input_table_1 tr td:nth-child(1),
@@ -200,7 +201,7 @@ button {
 }
 
 #select_rack_table tbody {
-  height: 90px;
+  height: 120px;
   width: 205px;
   display: block;
 }

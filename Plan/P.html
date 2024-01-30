@@ -1,0 +1,525 @@
+!<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: "Tahoma";
+        width: 21cm;
+        height: 29.7cm;
+        border: solid 1px black;
+        font-size: 8px;
+      }
+      * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-size: 8px;
+      }
+      .page {
+        width: 21cm;
+        min-height: 29.7cm;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      @media print {
+        * { overflow: visible !important; } 
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+      }
+      .dp-f {
+        display: flex;
+      }
+      .fd-c {
+        flex-direction: column;
+      }
+      .fd-r {
+        flex-direction: row;
+      }
+      .bd {
+        border: solid 1px black;
+      }
+      .fw {
+        width: 100%;
+      }
+      .fh {
+        height: 29.7cm;
+      }
+      .t-ct {
+        text-align: center;
+      }
+      tr {
+        height: 15px;
+      }
+      table {
+        padding: 0;
+        margin: 0;
+        border-spacing: 0;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+      }
+      td, th {
+        padding: 0;
+        margin: 0;
+        border-spacing: 0;
+        text-align: center;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+      }
+      tr, td, th {
+          padding: 0;
+          margin: 0;
+          border-spacing: 0;
+          text-align: center;
+        }  
+        </style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phiếu đùn ngày ${plan_date_at}-${die_number}</title>
+</head>
+
+<div style="width : 100%; height: 100%; display: flex; flex-direction: row;">
+<div style="width : 5%; height: 100%;">
+</div>
+<div style="width : 93%; height: 100%; display: flex; flex-direction: column;">
+<div style="height : 1.5%; width: 100%;"></div>
+<div style="width: 100%; height: 2%; display: flex; border: none; flex-direction: row; justify-content: space-evenly; margin-top : 0px; font-size:large;">
+    <img src="../../../diereport/Tube_Drawing/Lib/logo.png" style="width : auto; height : 100%; ">
+    <h3 style="width: auto; height: 100%; border: none; padding: 0; margin: 0; font-size: 20px;">PHIẾU THÔNG TIN SẢN XUẤT</h3>
+</div>
+<div style="width : 100%; height: 96%; display: flex; flex-direction: column;">
+  <div style="width : 100%; height: 100%; display: flex;">
+        <div style="width: 34%; height: 100%; display:flex; flex-direction:column; margin-right: 10px">
+          <table style="overflow: auto; width : auto; margin-top: 5px;">
+            <tbody style="overflow: auto; height: auto;">
+                <tr>
+                    <td>Ngày tạo phiếu</td>
+                    <td style="width: 60%;"></td>
+                </tr>
+                <tr>
+                    <td>Người tạo phiếu</td>
+                    <td style="width: 60%;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="overflow: auto; width : auto; margin-top: 5px;">
+          <tbody style="overflow: auto; height: auto;">
+              <tr>
+                  <td>Mã sản phẩm</td>
+                  <td style="width: 35%;" colspan="2"></td>
+              </tr>
+              <tr>
+                  <td>Khuôn kéo (Dies)</td>
+                  <td style="width: 45%;"></td>
+                  <td style="width: 30%;">Đã BT&#160&#160&#160&#160&#160&#160 Chưa BT</td>
+              </tr>
+              <tr>
+                <td>Lõi kéo (Plug)</td>
+                <td style="width: 45%;"></td>
+                <td style="width: 30%;">Đã BT&#160&#160&#160&#160&#160&#160 Chưa BT</td>
+            </tr>
+          </tbody>
+        </table>
+            <table style="overflow: auto; width : auto; margin-top: 5px;">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Ngày đùn</th>
+                        <th style="width: 80px;">Mã số rack</th>
+                        <th style="width: 80px;">Số lượng</th>
+                        <th style="width: 100px;">Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody style="overflow: auto; height: auto;">
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                    <tr style="height: 15px">
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 80px;"></td>
+                        <td style="width: 100px;"></td>
+                    </tr>
+                </tbody>
+              </table>
+              <table style="overflow: auto; width : auto; margin-top: 5px;">
+                  <thead>
+                      <tr>
+                          <th colspan="5">Kích thước</th>
+                      </tr>
+                  </thead>
+                  <tbody style="overflow: auto; height: auto;">
+                      <tr style="height: 15px">
+                          <td style="width: 25%;"></td>
+                          <td style="width: 25%;">Trước kéo</td>
+                          <td style="width: 25%;">Sau kéo</td>
+                          <td style="width: 25%;">Đơn vị</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Chiều dài SP</td>
+                          <td></td>
+                          <td></td>
+                          <td>mm</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Đường kính ngoài</td>
+                          <td></td>
+                          <td></td>
+                          <td>mm</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Đường kính trong</td>
+                          <td></td>
+                          <td></td>
+                          <td>mm</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Độ dày</td>
+                          <td></td>
+                          <td></td>
+                          <td>mm</td>
+                      </tr>
+                  </tbody>
+                </table>
+                <table style="overflow: auto; width : auto; margin-top: 5px;">
+                  <thead>
+                      <tr>
+                          <th colspan="5">Điều chỉnh khuôn</th>
+                      </tr>
+                  </thead>
+                  <tbody style="overflow: auto; height: auto;">
+                      <tr style="height: 15px">
+                          <td style="width: 25%;"></td>
+                          <td style="width: 25%;">Giá trị chuẩn</td>
+                          <td style="width: 25%;">Điều chỉnh lần 1</td>
+                          <td style="width: 25%;">Điều chỉnh lần 2</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Bu-lông A</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Bu-lông B</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Bu-lông C</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Bu-lông D</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+                <table style="overflow: auto; width : auto; margin-top: 5px;">
+                  <thead>
+                      <tr>
+                          <th colspan="5">Bóp ống</th>
+                      </tr>
+                  </thead>
+                  <tbody style="overflow: auto; height: auto;">
+                      <tr style="height: 15px">
+                          <td style="width: 25%;"></td>
+                          <td style="width: 25%;">Giá trị chuẩn</td>
+                          <td style="width: 25%;">Thực tế</td>
+                          <td style="width: 25%;">Ghi chú</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Chiều cao băng tải</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Kích thước bóp ống</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Áp suất bóp ống</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Ngàm kẹp</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+                <table style="overflow: auto; width : auto; margin-top: 5px;">
+                  <thead>
+                      <tr>
+                          <th colspan="5">Tốc độ kéo</th>
+                      </tr>
+                  </thead>
+                  <tbody style="overflow: auto; height: auto;">
+                      <tr style="height: 15px">
+                          <td style="width: 25%;">Phân cấp TĐ</td>
+                          <td style="width: 25%;">Thiết lập</td>
+                          <td style="width: 25%;">Thực tế</td>
+                          <td style="width: 25%;">Đơn vị</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Tốc độ ban đầu</td>
+                          <td></td>
+                          <td></td>
+                          <td>m/min</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Tốc độ kéo chính</td>
+                          <td></td>
+                          <td></td>
+                          <td>m/min</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Tốc độ kết thúc</td>
+                          <td></td>
+                          <td></td>
+                          <td>m/min</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Tốc độ đầu đẩy</td>
+                          <td></td>
+                          <td></td>
+                          <td>%</td>
+                      </tr>
+                      <tr style="height: 15px">
+                        <td>Lực kéo</td>
+                        <td></td>
+                        <td></td>
+                        <td>kN</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table style="overflow: auto; width : auto; margin-top: 5px;">
+                  <thead>
+                      <tr>
+                          <th colspan="5">Chỉnh thẳng sau cắt</th>
+                      </tr>
+                  </thead>
+                  <tbody style="overflow: auto; height: auto;">
+                      <tr style="height: 15px">
+                          <td style="width: 25%;"></td>
+                          <td style="width: 25%;">Thiết lập</td>
+                          <td style="width: 25%;">Thực tế</td>
+                          <td style="width: 25%;">Đơn vị</td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Loại máy</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Độ nghiêng con lăn</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Khoảng cách</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr style="height: 15px">
+                          <td>Tốc độ quay</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                  </tbody>
+                </table>
+            <div style="display:flex; flex-direction: row;">
+          </div>
+          <div style="width: 100%; height: 220px; margin-top: 5px; border: 1px solid rgb(0, 0, 0); font-size: 12px">
+              Ghi chú: ${plan_note}
+          </div>
+        </div>
+        <div style="width: 66%; height: 100%; margin-top: 5px;">
+          <table style="overflow: auto; width : 100%;">
+            <tbody style="overflow: auto; height: auto;">
+                <tr style="height: 15px">
+                  <td style="width: 25%;">Ngày sản xuất</td>
+                  <td style="width: 25%;"></td>
+                  <td style="width: 25%;">Chiều dài cắt</td>
+                  <td style="width: 25%;"></td>
+                </tr>
+                <tr style="height: 15px">
+                  <td>Nhân viên kéo</td>
+                  <td></td>
+                  <td>Cắt mẫu</td>
+                  <td></td>
+                </tr>
+                <tr style="height: 15px">
+                  <td>Mục đíc sản xuất</td>
+                  <td></td>
+                  <td>Chiều dài mẫu</td>
+                  <td></td>
+                </tr>
+                <tr style="height: 15px">
+                  <td>Ngày cắt</td>
+                  <td></td>
+                  <td>Số lượng mẫu</td>
+                  <td></td>
+                </tr>
+              <tr style="height: 15px">
+                <td>Nhân viên cắt</td>
+                <td></td>
+                <td>Độ cong</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="overflow: auto; width : auto;">
+            <thead>
+              <tr>
+                <th style="width: 15px;">Stt</th>
+                <th style="width: 40px;">Độ nhám Rz=2µm</th>
+                <th style="width: 40px;">Độ nhám Rz=5µm</th>
+                <th style="width: 40px;">Diemark 10µm</th>
+                <th style="width: 35px;">TG gián đoạn</th>
+                <th style="width: 35px;">Nguyên nhân</th>
+                <th style="width: 30px;">Thành phẩm</th>
+                <th style="width: 30px;">Phế phẩm</th>
+                <th style="width: 40px;">Y: mm</th>
+                <th style="width: 40px;">X: mm</th>
+                <th style="width: 40px;">Chỉnh thẳng</th>
+                <th style="width: 15px;"></th>
+                <th style="width: 15px;"></th>
+                <th style="width: 15px;"></th>
+                <th style="width: 15px;"></th>
+                <th style="width: 15px;"></th>
+                <th style="width: 15px;"></th>
+              </tr>
+            </thead>
+            ${makeTable()}
+          </table>
+        </div>
+    </div>
+</div>
+</div>
+<div style="width : 1%; height: 100%;">
+</div>
+</div>
+  </body>
+</html>

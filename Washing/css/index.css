@@ -26,6 +26,9 @@ table input {
 input[type="date"]{
   width: 120px;
 }
+input {
+  height: 20px;
+}
 select {
   width: 160px;
   height: 22px;

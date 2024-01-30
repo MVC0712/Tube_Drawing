@@ -36,9 +36,14 @@ $start_pull_speed = $_POST['start_pull_speed'];
 $main_pull_speed = $_POST['main_pull_speed'];
 $end_pull_speed = $_POST['end_pull_speed'];
 $pusher_speed = $_POST['pusher_speed'];
+$puller_force = $_POST['puller_force'];
 $cutting_date = $_POST['cutting_date'];
 $cutting_staff_id = $_POST['cutting_staff_id'];
 $file_url = $_POST['file_url'];
+$straight = $_POST['straight'];
+$angle = $_POST['angle'];
+$roller_dis = $_POST['roller_dis'];
+$roller_speed = $_POST['roller_speed'];
 try {
     $sql = "UPDATE t_drawing SET 
     production_number_id = '$production_number_id',
@@ -73,7 +78,12 @@ try {
     pusher_speed = '$pusher_speed',
     cutting_date = '$cutting_date',
     cutting_staff_id = '$cutting_staff_id',
-    file_url = '$file_url'
+    file_url = '$file_url',
+    straight = '$straight',
+    angle = '$angle',
+    roller_dis = '$roller_dis',
+    roller_speed = '$roller_speed',
+    puller_force = '$puller_force'
     WHERE id= '$id'";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
