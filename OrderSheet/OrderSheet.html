@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DailyReport Page</title>
+    <title>OrderSheet Page</title>
     <link rel="stylesheet" href="../Lib/main.css" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
@@ -27,7 +27,7 @@
           <input id="production_number" class="need-clear" type="text" />
           <select
             name=""
-            id="production_number__select"
+            id="production_numbers_id"
             class="no-input save-data need-clear"
           ></select>
         </div>
@@ -68,18 +68,9 @@
         </div>
       </div>
       <div class="button__wrapper">
-        <input id="search_input" placeholder="Tìm trong bảng" style="width: 100px; text-align: left;" type="text" onkeyup="timkiemkhuon();" />
+        <input id="search_input" placeholder="Tìm trong bảng" style="width: 100px; text-align: left;" type="text" />
         <button disabled id="save__button">Save</button>
         <button disabled id="update__button">Update</button>
-        <div class="button__block">
-          <button id="remain__button">Chk Remain</button>
-          <img id="icon" src="./img/002.svg" alt="icon" />
-        </div>
-        <div class="button__block">
-          <button id="check_remain">Remain</button>
-          <img id="icon" src="./img/002.svg" alt="icon" />
-        </div>
-        <button id="test__button">TEST</button>
       </div>
       <div class="summary__wrapper">
         <!-- 削除確認ダイアログ -->
