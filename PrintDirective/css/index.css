@@ -1,5 +1,6 @@
 input {
   text-align: left;
+  height: 20px;
 }
 .top__wrapper {
   width: 100%;
@@ -26,92 +27,66 @@ input {
   justify-content: space-around;
   align-items: center;
 }
-.code_outer {
-  width: 170px;
+
+.production_number_outer {
+  width: 380px;
   margin-right: 10px;
-  display: none;
 }
-.code_title {
-  width: 70px;
+.production_number_title {
+  width: 140px;
 }
-#code {
-  width: 100px;
+#production_number_id {
+  width: 145px;
+}
+#drawing_type_id {
+  width: 45px;
 }
 .product_date_outer {
-  width: 140px;
+  width: 150px;
   margin-right: 10px;
 }
 .product_date_title {
   width: 40px;
 }
 #product_date {
-  width: 100px;
+  width: 110px;
 }
-.product_type_outer {
-  width: 80px;
-  margin-right: 10px;
+.staff_outer {
+  width: 300px;
 }
-.product_type_title {
-  width: 20px;
-}
-.product_dim_outer {
-  width: 80px;
-  margin-right: 10px;
-}
-.product_dim_title {
-  width: 40px;
-}
-#product_type,
-#product_dim {
+.staff_title {
   width: 50px;
 }
-.extrusion_scrap_outer {
-  width: 120px;
+#staff_id {
+  width: 150px;
+}
+.die_outer {
+  width: 180px;
   margin-right: 10px;
 }
-.extrusion_scrap_title {
-  width: 55px;
-}
-#extrusion_scrap {
+.die_title {
   width: 40px;
 }
-.casting_scrap_outer {
-  width: 120px;
+#die_number_id {
+  width: 140px;
+}
+.plug_outer {
+  width: 180px;
   margin-right: 10px;
 }
-.casting_scrap_title {
-  width: 55px;
-}
-#casting_scrap {
+.plug_title {
   width: 40px;
 }
-.aluminium_ingot_outer {
-  width: 120px;
-  margin-right: 10px;
+#plug_number_id {
+  width: 140px;
 }
-.aluminium_ingot_title {
-  width: 65px;
-}
-#aluminium_ingot {
-  width: 40px;
-}
-.aluminium_orther_outer {
-  width: 80px;
-  margin-right: 10px;
-}
-.aluminium_orther_title {
-  width: 40px;
-}
-#aluminium_orther {
-  width: 40px;
-}
+
 #save,
 #update,
 #print {
   width: 40px;
   height: 20px;
   padding: 0;
-  margin: 0;
   margin-right: 10px;
   margin-bottom: 10px;
 }
@@ -128,26 +103,12 @@ input {
 #summary_table tbody tr td:nth-child(2) {
   width: 100px;
 }
-#summary_table tbody tr td:nth-child(2) input {
-  width: 94px;
-  border: none;
-}
 #summary_table thead tr th:nth-child(3),
 #summary_table tbody tr td:nth-child(3) {
-  width: 70px;
-}
-#summary_table tbody tr td:nth-child(3) select {
-  width: 70px;
-  border: none;
+  width: 170px;
 }
 #summary_table thead tr th:nth-child(4),
-#summary_table tbody tr td:nth-child(4) {
-  width: 70px;
-}
-#summary_table tbody tr td:nth-child(4) select {
-  width: 64px;
-  border: none;
-}
+#summary_table tbody tr td:nth-child(4),
 #summary_table thead tr th:nth-child(5),
 #summary_table tbody tr td:nth-child(5),
 #summary_table thead tr th:nth-child(6),
@@ -158,18 +119,8 @@ input {
 #summary_table tbody tr td:nth-child(8),
 #summary_table thead tr th:nth-child(9),
 #summary_table tbody tr td:nth-child(9) {
-  width: 50px;
-}
-#summary_table tbody tr td:nth-child(5) input,
-#summary_table tbody tr td:nth-child(6) input,
-#summary_table tbody tr td:nth-child(7) input,
-#summary_table tbody tr td:nth-child(8) input,
-#summary_table tbody tr td:nth-child(9) input {
-  width: 44px;
-  border: none;
-}
-#summary_table thead tr th:nth-child(10),
-#summary_table tbody tr td:nth-child(10) {
   width: 100px;
-  display: none;
+}
+#print__button {
+  height: 20px;
 }

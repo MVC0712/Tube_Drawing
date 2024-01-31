@@ -4,11 +4,8 @@ $dbh = new DBHandler();
 if ($dbh->getInstance() === null) {
     die("No database connection");
 }
-$datetime = date("Y-m-d H:i:s");
 try {
-    $sql = "SELECT 
-    * FROM t_plan
-    ORDER BY product_date DESC;";
+    $sql = "SELECT * FROM m_drawing_type WHERE 1";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

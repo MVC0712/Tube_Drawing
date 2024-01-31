@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print Directive</title>
+    <link rel="stylesheet" href="../Lib/main.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>Print Directive Page</header>
+      <div class="top__wrapper">
+        <div class="top_left__wrapper">
+          <div class="input-block__outer production_number_outer">
+            <div class="input__title production_number_title">
+              Production number
+            </div>
+            <input type="text" id="production_number">
+            <div>
+              <select id="production_number_id" class="no-input save-data need-clear">
+                <option value="0">--</option>
+              </select>
+            </div>
+            <div>
+              <select id="drawing_type_id" class="no-input save-data need-clear">
+                <option value="0">--</option>
+              </select>
+            </div>
+          </div>
+        <div class="input-block__outer product_date_outer">
+          <div class="input__title product_date_title">
+            Date
+          </div>
+          <div>
+            <input type="date" id="product_date" class="no-input save-data need-clear check">
+          </div>
+        </div>
+        <div class="input-block__outer staff_outer">
+          <div class="input__title staff_title">
+            Staff
+          </div>
+          <input type="text" id="staff">
+          <div>
+            <select id="staff_id" class="no-input save-data need-clear">
+              <option value="0">--</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="top_right__wrapper">
+        <div class="input-block__outer die_outer">
+          <div class="input__title die_title">
+            Die
+          </div>
+          <div>
+            <select id="die_number_id" class="no-input save-data need-clear">
+              <option value="0">--</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-block__outer plug_outer">
+          <div class="input__title plug_title">
+            Plug
+          </div>
+          <div>
+            <select id="plug_number_id" class="no-input save-data need-clear">
+              <option value="0">--</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="button__wrapper">
+        <button id="save" disabled>Save</button>
+        <button id="print__button" disabled>Print</button>
+      </div>
+
+      <table id="summary_table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Product date</th>
+            <th>Production number</th>
+            <th>Type</th>
+            <th>Die</th>
+            <th>Plug</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    <script src="../Lib/jquery.min.js"></script>
+    <script src="./scr/index.js"></script>
+  </body>
+</html>
