@@ -54,10 +54,7 @@ body {
 #summary__table td:nth-child(8) {
   width: 50px;
 }
-#summary__table th:nth-child(9),
-#summary__table td:nth-child(9),
-#summary__table th:nth-child(10),
-#summary__table td:nth-child(10) {
-  width: 125px;
-  text-align: left;
+#summary__table th:nth-child(8),
+#summary__table td:nth-child(8) {
+  display: none;
 }

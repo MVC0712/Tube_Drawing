@@ -15,9 +15,7 @@ try {
     m_production_numbers.production_number,
     m_ordersheet.production_quantity,
     m_ordersheet.note,
-    CONCAT(m_ordersheet.production_numbers_id,
-        '-',
-        m_production_numbers.ex_production_numbers_id) AS production_numbers_id
+    m_ordersheet.production_numbers_id
 FROM
     m_ordersheet
 LEFT JOIN

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Die&Plug Page</title>
+    <link rel="stylesheet" href="../Lib/main.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>Die&Plug Input</header>
+    <div class="main__wrapper">
+      <div class="left__wrapper">
+        <div style="height: 20%">
+          <div class="dp-fr">
+            <div class="input-block__outer">
+              <div class="input__title">Die number</div>
+              <input id="die_number" class="need-clear save-data no-input" type="text" style="width: 100px;"/>
+            </div>
+            <div class="input-block__outer">
+              <div class="input__title">Ex production number</div>
+              <input id="production_number" class="need-clear" type="text" />
+              <select id="ex_production_numbers_id" class="no-input save-data need-clear" >
+              </select>
+            </div>
+          </div>
+          <div class="dp-fr">
+            <div class="input-block__outer">
+              <div class="input__title">Diameter</div>
+              <input id="diameter" class="need-clear save-data no-input" type="text" />
+            </div>
+            <div class="input-block__outer">
+              <div class="input__title">Note</div>
+              <input id="note" class="need-clear save-data no-input" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="button__wrapper">
+          <button id="die_save__button" disabled>Save</button>
+          <button id="die_update__button" disabled>Update</button>
+        </div>
+        <div style="height: 60%">
+          <table id="die__table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Die number</th>
+                <th>Ex production number</th>
+                <th>Diameter</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mid__wrapper">
+        <div style="height: 20%">
+          <div class="dp-fr">
+            <div class="input-block__outer">
+              <div class="input__title">Plug number</div>
+              <input id="plug_number" class="need-clear save-data no-input" type="text" style="width: 100px;"/>
+            </div>
+            <div class="input-block__outer">
+              <div class="input__title">Ex production number</div>
+              <!-- <input id="production_number" class="need-clear" type="text" /> -->
+              <select id="ex_production_numbers_id" class="no-input save-data need-clear" >
+              </select>
+            </div>
+          </div>
+          <div class="dp-fr">
+            <div class="input-block__outer">
+              <div class="input__title">Diameter</div>
+              <input id="diameter" class="need-clear save-data no-input" type="text" />
+            </div>
+            <div class="input-block__outer">
+              <div class="input__title">Note</div>
+              <input id="note" class="need-clear save-data no-input" type="text" />
+            </div>
+          </div>
+        </div>
+        <div class="button__wrapper">
+          <button id="plug_save__button" disabled>Save</button>
+          <button id="plug_update__button" disabled>Update</button>
+        </div>
+        <div style="height: 60%">
+          <table id="plug__table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Plug number</th>
+                <th>Ex production number</th>
+                <th>Diameter</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom__wrapper">
+      <div style="height: 40%">
+        <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">Production number</div>
+            <input id="production_number" class="need-clear save-data no-input" type="text" style="width: 100px;"/>
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Ex Production number</div>
+            <select id="ex_production_numbers_id" class="no-input save-data need-clear" >
+            </select>
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Length</div>
+            <input id="production_length" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Specific weight</div>
+            <input id="specific_weight" class="need-clear save-data no-input" type="text" />
+          </div>
+
+          <div class="input-block__outer">
+            <div class="input__title">Packing column</div>
+            <input id="packing_column" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Packing row</div>
+            <input id="packing_row" class="need-clear save-data no-input" type="text" />
+          </div>
+        </div>
+          <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">Before drawing length</div>
+            <input id="b_drawing_l" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Before drawing out dim</div>
+            <input id="b_drawing_out_d" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Before drawing in dim</div>
+            <input id="b_drawing_in_d" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Before drawing thickness</div>
+            <input id="b_drawing_t" class="need-clear save-data no-input" type="text" />
+          </div>
+        </div>
+        <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">After drawing length</div>
+            <input id="a_drawing_l" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">After drawing out dim</div>
+            <input id="a_drawing_out_d" class="need-clear save-data no-input" type="text" />
+          </div><div class="input-block__outer">
+            <div class="input__title">After drawing in dim</div>
+            <input id="a_drawing_in_d" class="need-clear save-data no-input" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">After drawing thickness</div>
+            <input id="a_drawing_t" class="need-clear save-data no-input" type="text" />
+          </div>
+        </div>
+        <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">Conveyor height</div>
+            <input id="conveyor_height" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Compress dim</div>
+            <input id="compress_dim" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Compress pressure</div>
+            <input id="compress_pressure" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Clamp pressure</div>
+            <input id="clamp_pressure" class="need-clear save-data" type="text" />
+          </div>
+        </div>
+        <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">Start speed</div>
+            <input id="start_pull_speed" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Main speed</div>
+            <input id="main_pull_speed" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">End speed</div>
+            <input id="end_pull_speed" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Pusher speed</div>
+            <input id="pusher_speed" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Puller force</div>
+            <input id="puller_force" class="need-clear save-data" type="text" />
+          </div>
+        </div>
+        <div class="dp-fr">
+          <div class="input-block__outer">
+            <div class="input__title">Staright machine</div>
+            <select id="straight" class="need-clear save-data" style="width: 80px;">
+              <option value="0">----</option>
+              <option value="1">Máy lớn</option>
+              <option value="2">Máy nhỏ</option>
+            </select>
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Angle</div>
+            <input id="angle" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Roller distance</div>
+            <input id="roller_dis" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Roller speed</div>
+            <input id="roller_speed" class="need-clear save-data" type="text" />
+          </div>
+          <div class="input-block__outer">
+            <div class="input__title">Curvature</div>
+            <input id="curvature" class="need-clear save-data" type="text" />
+          </div>
+        </div>
+      </div>
+      <div class="button__wrapper">
+        <button id="production_numbers_save__button" disabled>Save</button>
+        <button id="production_numbers_update__button" disabled>Update</button>
+      </div>
+      <div style="height: 50%">
+        <table id="production_number__table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Production number</th>
+              <th>Ex production number</th>
+              <th>Product length</th>
+              <th>Packing column</th>
+              <th>Packing row</th>
+              <th>Hardness</th>
+              <th>Start pull speed</th>
+              <th>Main pull speed</th>
+              <th>End pull speed</th>
+              <th>Pusher speed</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../Lib/jquery.min.js"></script>
+    <script src="./scr/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+body {
+  width: calc(1100px - 2px);
+  height: calc(700px - 2px);
+}
+thead > tr > th {
+  border-bottom: 0;
+  height: 20px;
+}
+thead th,
+tbody th {
+  background-color: #0000ff;
+  border: solid 1px white;
+  color: white;
+  text-align: center;
+  font-size: 9pt;
+  font-weight: normal;
+}
+td, th {
+  padding: 0;
+}
+
+table input {
+  padding: 0;
+  width: 100%;
+}
+input[type="date"]{
+  width: 120px;
+}
+input {
+  height: 20px;
+}
+select {
+  width: 160px;
+  height: 22px;
+  border: 1px solid #0000ff;
+}
+tbody tr.selected-record {
+  background-color: #dbdbff;
+}
+
+tbody tr.selected-record input {
+  background-color: #dbdbff;
+}
+button {
+  height: 20px;
+  width: 100px;
+}
+.input__title {
+  width: initial;
+  padding: 0 3px 0 3px;
+}
+/* =============page layout=============== */
+.main__wrapper {
+  padding: 0;
+  /* height: 95%; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: dotted 1px #0000cc;
+}
+.left__wrapper {
+  width: 49.7%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.mid__wrapper {
+  width: 50%;
+  height: 100%;
+  border-left: 1px dotted #0000ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.bottom__wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: 10pt;
+}
+
+.button__wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.summary__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(598px - 30px - 380px - 1px);
+}
+.input-block__outer {
+  /* height: 35px; */
+  width: initial;
+  margin: 0 3px 0 3px;
+}
+.dp-fr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+/* =============input elements end =============== */
+/* =============== TABLES  ==================== */
+#die__table tbody,
+#plug__table tbody {
+  width: 100%;
+  height: 160px;
+}
+#die__table tr th:nth-child(1),
+#die__table tr td:nth-child(1),
+#plug__table tr th:nth-child(1),
+#plug__table tr td:nth-child(1) {
+  display: none;
+}
+#die__table tr th:nth-child(2),
+#die__table tr td:nth-child(2),
+#plug__table tr th:nth-child(2),
+#plug__table tr td:nth-child(2) {
+  width: 90px;
+}
+#die__table tr th:nth-child(3),
+#die__table tr td:nth-child(3),
+#plug__table tr th:nth-child(3),
+#plug__table tr td:nth-child(3) {
+  width: 150px;
+}
+#die__table tr th:nth-child(4),
+#die__table tr td:nth-child(4),
+#plug__table tr th:nth-child(4),
+#plug__table tr td:nth-child(4) {
+  width: 110px;
+}
+#die__table tr th:nth-child(5),
+#die__table tr td:nth-child(5),
+#plug__table tr th:nth-child(5),
+#plug__table tr td:nth-child(5) {
+  width: 110px;
+}
+
+#production_number__table tbody {
+  width: 100%;
+  height: 170px;
+}
+#production_number__table tr th:nth-child(1),
+#production_number__table tr td:nth-child(1) {
+  display: none;
+}
+#production_number__table tr th:nth-child(2),
+#production_number__table tr td:nth-child(2),
+#production_number__table tr th:nth-child(3),
+#production_number__table tr td:nth-child(3)  {
+  width: 150px;
+}
+#production_number__table tr th:nth-child(4),
+#production_number__table tr td:nth-child(4) {
+  width: 80px;
+}
+#production_number__table tr th:nth-child(5),
+#production_number__table tr td:nth-child(5),
+#production_number__table tr th:nth-child(6),
+#production_number__table tr td:nth-child(6),
+#production_number__table tr th:nth-child(7),
+#production_number__table tr td:nth-child(7),
+#production_number__table tr th:nth-child(8),
+#production_number__table tr td:nth-child(8),
+#production_number__table tr th:nth-child(9),
+#production_number__table tr td:nth-child(9),
+#production_number__table tr th:nth-child(10),
+#production_number__table tr td:nth-child(10),
+#production_number__table tr th:nth-child(11),
+#production_number__table tr td:nth-child(11) {
+  width: 90px;
+}
