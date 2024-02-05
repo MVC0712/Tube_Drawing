@@ -111,6 +111,13 @@ $(document).on("click", "#die__table tbody tr", function () {
     $(this).attr("id", "die_selected__tr");
   } else {
   }
+  fileName = "SelDieById.php";
+  sendData = {
+    id: $("#die_selected__tr td:nth-child(1)").text(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  putDataToInput(ajaxReturnData, "left__wrapper");
+  checkDieInput();
 });
 $(document).on("click", "#plug__table tbody tr", function () {
   if (!$(this).hasClass("selected-record")) {
@@ -120,6 +127,13 @@ $(document).on("click", "#plug__table tbody tr", function () {
     $(this).attr("id", "plug_selected__tr");
   } else {
   }
+  fileName = "SelPlugById.php";
+  sendData = {
+    id: $("#plug_selected__tr td:nth-child(1)").text(),
+  };
+  myAjax.myAjax(fileName, sendData);
+  putDataToInput(ajaxReturnData, "mid__wrapper");
+  checkPlugInput();
 });
 $(document).on("click", "#production_number__table tbody tr", function () {
   if (!$(this).hasClass("selected-record")) {
@@ -129,16 +143,13 @@ $(document).on("click", "#production_number__table tbody tr", function () {
     $(this).attr("id", "production_number_selected__tr");
   } else {
   }
-});
-
-$("#add_rack__button").on("click", function () {
-  fileName = "InsUsingAgingRack.php";
+  fileName = "SelProductionNumberById.php";
   sendData = {
-    washing_output_id: $("#washing_date_selected__tr td:nth-child(1)").text(),
-    rack_number: $("#racknumber__input").val(),
-    work_quantity: $("#rackqty__input").val(),
+    id: $("#production_number_selected__tr td:nth-child(1)").text(),
   };
   myAjax.myAjax(fileName, sendData);
+  putDataToInput(ajaxReturnData, "bottom__wrapper");
+  checkProductionNumberInput();
 });
 
 $(document).on("change keyup", ".no-input", function() {
@@ -286,43 +297,74 @@ function clearInputData() {
   });
 };
 
-$(document).on("click", "#save__button", function () {
-  var fileName = "InsWashingCase.php";
-  var sendData = {
-    washing_id: $("#washing_date_selected__tr").find("td").eq(0).html(),
-    staff_id: $("#staff_id").val(),
-    start_time: $("#start_time").val(),
-    end_time: $("#end_time").val(),
-  };
-  myAjax.myAjax(fileName, sendData);
-
-  let washing_case_id = ajaxReturnData[0]["id"];
-
-  washingData = getTableData($("#add_new__table tbody tr"));
-  washingData.push(washing_case_id);
-  fileName = "InsWashingData.php";
-  sendData = JSON.stringify(washingData);
-  myAjax.myAjax(fileName, sendData);
-  $("#save__button").attr("disabled", true);
-  $("#add_new__table tbody").empty();
-});
-$(document).on("click", "#update__button", function () {
-  fileName = "UpdateData.php";
-  inputData = getInputData();
-  inputData["targetId"] = $("#selected__tr").find("td").eq(0).html();
+$(document).on("click", "#die_save__button", function () {
+  fileName = "InsDieData.php";
+  inputData = getInputDieData();
   sendData = inputData;
   myAjax.myAjax(fileName, sendData);
   clearInputData();
-  makeSummaryTable();
-  $("#update__button").attr("disabled", true);
+  makeDieTable();
+  $("#die_save__button").attr("disabled", true);
 });
+$(document).on("click", "#plug_save__button", function () {
+  fileName = "InsPlugData.php";
+  inputData = getInputPlugData();
+  inputData["targetId"] = $("#plug_selected__tr").find("td").eq(0).html();
+  sendData = inputData;
+  myAjax.myAjax(fileName, sendData);
+  clearInputData();
+  makePlugTable();
+  $("#plug_save__button").attr("disabled", true);
+});
+$(document).on("click", "#production_numbers_save__button", function () {
+  fileName = "InsProductionNumberData.php";
+  inputData = getInputProductionNumberData();
+  sendData = inputData;
+  myAjax.myAjax(fileName, sendData);
+  clearInputData();
+  makeproductionNumberTable();
+  $("#production_numbers_save__button").attr("disabled", true);
+});
+
+$(document).on("click", "#die_update__button", function () {
+  fileName = "UpdateDieData.php";
+  inputData = getInputDieData();
+  sendData = inputData;
+  myAjax.myAjax(fileName, sendData);
+  clearInputData();
+  makeDieTable();
+  $("#die_update__button").attr("disabled", true);
+});
+$(document).on("click", "#plug_update__button", function () {
+  fileName = "UpdatePlugData.php";
+  inputData = getInputPlugData();
+  inputData["targetId"] = $("#plug_selected__tr").find("td").eq(0).html();
+  sendData = inputData;
+  myAjax.myAjax(fileName, sendData);
+  clearInputData();
+  makePlugTable();
+  $("#plug_update__button").attr("disabled", true);
+});
+$(document).on("click", "#production_numbers_update__button", function () {
+  fileName = "UpdateProductionNumberData.php";
+  inputData = getInputProductionNumberData();
+  inputData["targetId"] = $("#production_number_selected__tr").find("td").eq(0).html();
+  sendData = inputData;
+  myAjax.myAjax(fileName, sendData);
+  clearInputData();
+  makeproductionNumberTable();
+  $("#production_numbers_update__button").attr("disabled", true);
+});
+
 function putDataToInput(data, className) {
   data.forEach(function (trVal) {
     Object.keys(trVal).forEach(function (tdVal) {
-      $("." + className +"#" + tdVal).val(trVal[tdVal]);
+      $("." + className +" #" + tdVal).val(trVal[tdVal]).removeClass("no-input").addClass("complete-input");
     });
   });
 };
+
+
 $(document).on("click", "#save_washing_date", function () {
   var fileName = "InsWashing.php";
   var sendData = {

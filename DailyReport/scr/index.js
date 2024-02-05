@@ -39,8 +39,6 @@ selStaffCutting();
 SelDrawingType();
 SelProductionNumber();
 SelStatus();
-// SelDies();
-// SelPlugs();
 
 function SelDrawingType() {
   var fileName = "SelDrawingType.php";
@@ -286,153 +284,6 @@ $(document).on("click", "#input_rack_table tbody tr", function() {
     $("#profile_cut_table tbody").empty();
   }
 });
-// $("#racknumber__input").on("keydown", function (e) {
-//   var k = e.keyCode;
-//   var str = String(k);
-//   if (k === 13 && $(this).hasClass("complete-input")) {
-//     $("#rackqty__input").focus();
-//     return false;
-//   }
-// });
-
-// $("#racknumber__input").on("keyup", function () {
-//   if (!isNaN($(this).val()) &&
-//     $(this).val() != "" &&
-//     0 < $(this).val() &&
-//     $(this).val() <= 200 &&
-//     checkDuplicateRackNumber()) {
-//     $(this).removeClass("no-input").addClass("complete-input");
-//   } else {
-//     $(this).removeClass("complete-input").addClass("no-input");
-//   }
-// });
-
-// $("#rackqty__input").on("keydown", function (e) {
-//   var k = e.keyCode;
-//   var str = String(k);
-//   keyCodeCheck(str);
-//   if (k === 13) {
-//     $("#add_rack__button").focus();
-//     e.preventDefault();
-//     return false;
-//   }
-// });
-
-// $("#rackqty__input").on("keyup", function (e) {
-//   if (!isNaN($(this).val()) &&
-//     $(this).val() != "" &&
-//     0 < $(this).val()) {
-//     $(this).removeClass("no-input").addClass("complete-input");
-//   } else {
-//     $(this).removeClass("complete-input").addClass("no-input");
-//   }
-//   if (checkRackInputComplete()) {
-//     $("#add_rack__button").prop("disabled", false);
-//   } else {
-//     $("#add_rack__button").prop("disabled", true);
-//   }
-// });
-
-// function checkRackInputComplete() {
-//   let flag = false;
-//   if ($("#racknumber__input").hasClass("complete-input") &&
-//     $("#rackqty__input").hasClass("complete-input")) {
-//     flag = true;
-//   } else {
-//     flag = false;
-//   }
-//   return flag;
-// };
-
-// function checkDuplicateRackNumber() {
-//   var flag = true;
-//   var inputValue = $("#racknumber__input").val();
-//   $("#output_rack_table tbody tr td:nth-child(3)").each(function (index, value) {
-//     if (Number($(this).text()) == inputValue) {
-//       flag = false;
-//     }
-//   });
-//   return flag;
-// };
-
-// function keyCodeCheck(k) {
-//   var str = String(k);
-//   if (!(str.match(/[0-9]/) ||
-//       (37 <= k && k <= 40) ||
-//       k === 8 ||
-//       k === 46 ||
-//       k === 13)
-//   ) {return false;
-//   } else {return true;}
-// };
-
-// $("#add_rack__button").on("keydown", function (e) {
-//   cancelKeydownEvent = true;
-// });
-
-// $("#add_rack__button").on("click", function () {
-//   let trNumber;
-//   let fileName;
-//   let sendData = new Object();
-//   let order_number;
-//   let rackNumberArr = [];
-//   switch ($(this).text()) {
-//     case "Save":
-//       trNumber = $("#output_rack_table tbody tr").length;
-//       $("<tr>")
-//         .append("<td></td>")
-//         .append("<td>" + (trNumber + 1) + "</td>")
-//         .append("<td>" + $("#racknumber__input").val() + "</td>")
-//         .append("<td>" + $("#rackqty__input").val() + "</td>")
-//         .appendTo("#output_rack_table tbody");
-//       $(this).prop("disabled", true);
-//       $("#racknumber__input")
-//         .val("")
-//         .focus()
-//         .removeClass("complete-input")
-//         .addClass("no-input");
-//       $("#rackqty__input")
-//         .val("")
-//         .removeClass("complete-input")
-//         .addClass("no-input");
-//       break;
-//     case "Add":
-//       $("#output_rack_table tbody tr td:nth-child(2)").each(function () {
-//         rackNumberArr.push(Number($(this).html()));
-//       });
-//       if (rackNumberArr.length != 0) {
-//         order_number = Math.max(...rackNumberArr) + 1;
-//       } else {
-//         order_number = 1;
-//       }
-//       fileName = "InsUsingAgingRack.php";
-//       sendData = {
-//         drawing_id: $("#selected__tr td:nth-child(1)").text(),
-//         order_number: order_number,
-//         rack_number: $("#racknumber__input").val(),
-//         work_quantity: $("#rackqty__input").val(),
-//       };
-//       myAjax.myAjax(fileName, sendData);
-//       makeRackTable();
-//       $("#racknumber__input").val("").removeClass("complete-input").addClass("no-input");
-//       $("#rackqty__input").val("").removeClass("complete-input").addClass("no-input");
-//       $("#add_rack__button").prop("disabled", true);
-//       break;
-//   }
-// });
-
-// $(document).on("click", "#output_rack_table tbody tr", function () {
-//   let deleteDialog = document.getElementById("delete-rack__dialog");
-//   if (!$(this).hasClass("selected-record")) {
-//     $(this).parent().find("tr").removeClass("selected-record");
-//     $(this).addClass("selected-record");
-//     $("#rack_selected__tr").removeAttr("id");
-//     $(this).attr("id", "rack_selected__tr");
-//   } else {
-//     deleteDialog.showModal();
-//   }
-// });
-
 $(document).on("click", "#delete-rack-cancel__button", function () {
   let deleteDialog = document.getElementById("delete-rack__dialog");
   deleteDialog.close();
@@ -449,46 +300,6 @@ $(document).on("click", "#delete-rack-delete__button", function () {
   deleteDialog.close();
   makeRackTable();
 });
-
-// function makeRackTable() {
-//   fileName = "SelRack2.php";
-//   sendData = {
-//     id: $("#selected__tr").find("td").eq(0).html(),
-//   };
-//   myAjax.myAjax(fileName, sendData);
-//   $("#output_rack_table tbody").empty();
-//   ajaxReturnData.forEach(function (trVal) {
-//     var newTr = $("<tr>");
-//     Object.keys(trVal).forEach(function (tdVal) {
-//       if (tdVal == "rack_number" || tdVal == "work_quantity") {
-//         $("<td>").append($("<input>").val(trVal[tdVal])).appendTo(newTr);
-//       } else {
-//         $("<td>").html(trVal[tdVal]).appendTo(newTr);
-//       }
-//     });
-//     $(newTr).appendTo("#output_rack_table tbody");
-//   });
-// };
-
-// function renumberTableColumn() {
-//   $("#output_rack_table tbody tr td:nth-child(1)").each(function (index, val) {
-//     $(this).text(index + 1);
-//   });
-// };
-
-// $(document).on("change", "#output_rack_table tbody tr input", function () {
-//   let sendData = new Object();
-//   let fileName;
-//   fileName = "UpdateUsingAgingRack.php";
-//   sendData = {
-//     id: $("#rack_selected__tr td:nth-child(1)").html(),
-//     rack_number: $("#rack_selected__tr td:nth-child(3) input").val(),
-//     work_quantity: $("#rack_selected__tr td:nth-child(4) input").val(),
-//   };
-//   console.log(sendData);
-//   myAjax.myAjax(fileName, sendData);
-// });
-
 $(document).on("keyup", "#profile_cut_table input", function () {
   if (0 < Number($(this).val()) &&
     Number($(this).val()) <= 20 &&
@@ -578,7 +389,8 @@ function ajaxFileUpload() {
 }
 
 $(document).on("change", "#ordersheet_id", function () {
-  $("#production_number_id").val(0);
+  SelDies();
+  SelPlugs();
   $("#select_rack_table tbody").empty();
   $("#input_rack_table tbody").empty();
   $("#profile_cut_table tbody").empty();
@@ -586,7 +398,7 @@ $(document).on("change", "#ordersheet_id", function () {
   $("#press_date").val("");
 });
 $(document).on("change", "#production_number_id", function () {
-  $("#ordersheet_id").val(0);
+  $("#ordersheet_id option").remove();
   $("#select_rack_table tbody").empty();
   $("#input_rack_table tbody").empty();
   $("#profile_cut_table tbody").empty();
