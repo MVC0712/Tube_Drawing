@@ -248,7 +248,7 @@ button {
 
 
 #washing_data__table tbody {
-  width: 700px;
+  width: 685px;
   height: 335px;
 }
 #washing_data__table tr th:nth-child(1),
@@ -288,7 +288,7 @@ button {
 #washing_data__table tr td:nth-child(9),
 #washing_data__table tr th:nth-child(10),
 #washing_data__table tr td:nth-child(10) {
-  width: 60px;
+  width: 55px;
 }
 
 .no-display {
@@ -297,4 +297,60 @@ button {
 
 .data_selected-record td:nth-child(n + 5) {
   background-color: rgb(253, 1, 253);
+}
+
+
+#add_ng__table tbody {
+  height: 0;
+  width: 0;
+}
+#add_ng__table tr th:nth-child(1),
+#add_ng__table tr td:nth-child(1) {
+  width: 50px;
+}
+#add_ng__table tr th:nth-child(2),
+#add_ng__table tr td:nth-child(2) {
+  width: 100px;
+}
+#add_ng__table tr th:nth-child(3),
+#add_ng__table tr td:nth-child(3) {
+  width: 25px;
+}
+#add_ng__table tr th:nth-child(4),
+#add_ng__table tr td:nth-child(4) {
+  width: 80px;
+}
+
+#add_ng__table tr th:nth-child(2) input,
+#add_ng__table tr th:nth-child(2) select {
+  width: 100px;
+}
+
+#ng__table tbody {
+  height: 223px;
+  width: 280px;
+}
+#ng__table tr th:nth-child(1),
+#ng__table tr td:nth-child(1) {
+  display: none;
+}
+#ng__table tr th:nth-child(2),
+#ng__table tr td:nth-child(2) {
+  width: 100px;
+}
+#ng__table tr th:nth-child(3),
+#ng__table tr td:nth-child(3),
+#ng__table tr td:nth-child(3) select {
+  width: 80px;
+}
+#ng__table tr th:nth-child(4),
+#ng__table tr td:nth-child(4),
+#ng__table tr td:nth-child(4) input {
+  width: 80px;
+}
+
+#add_ng__button {
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
