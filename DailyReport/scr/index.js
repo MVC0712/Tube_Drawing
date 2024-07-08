@@ -244,7 +244,7 @@ $(document).on("click", "#select_rack_table tbody tr", function() {
   } else {
       let rack_id = $(this).find("td:nth-child(1)").html();
       let rack_number = $(this).find("td:nth-child(2)").html();
-      let qty = $(this).find("td:nth-child(3)").html();
+      let qty = $(this).find("td:nth-child(3) input").val();
       press_date = $("#press_date").val();
       var newTr = $("<tr>");
       $("<td>").html(rack_id).appendTo(newTr);
@@ -257,6 +257,18 @@ $(document).on("click", "#select_rack_table tbody tr", function() {
       } else (alert("rack_number already input!"))
   }
 });
+$(document).on("change", "#select_rack_table tbody tr", function() {
+  let qty = $(this).find("td:nth-child(3) input").val();
+  let max_qty = $(this).find("td:nth-child(4)").html();
+  if (qty >= max_qty) {
+    $(this).find("td:nth-child(3) input").val(max_qty);
+  } else if (qty <= 1){
+    $(this).find("td:nth-child(3) input").val(1);
+  } else {
+    
+  }
+});
+
 function checkRackId(rack_id) {
   exist = false;
   $("#input_rack_table tbody tr").each(function (index, element) {
@@ -265,16 +277,7 @@ function checkRackId(rack_id) {
   });
   return exist;
 };
-function fillTableBody(data, tbodyDom) {
-  $(tbodyDom).empty();
-  data.forEach(function(trVal) {
-      let newTr = $("<tr>");
-      Object.keys(trVal).forEach(function(tdVal, index) {
-          $("<td>").html(trVal[tdVal]).appendTo(newTr);
-      });
-      $(newTr).appendTo(tbodyDom);
-  });
-};
+
 $(document).on("click", "#input_rack_table tbody tr", function() {
   if (!$(this).hasClass("selected-record")) {
     $(this).parent().find("tr").removeClass("selected-record");
@@ -500,6 +503,8 @@ function fillTableBody(data, tbodyDom) {
           if (tdVal == "order_number") {
             $("<th>").html("No." + trVal[tdVal]).appendTo(newTr);
           } else if ((tdVal == "ng_quantityyy") || (tdVal == "ok_quantityyy")) {
+            $("<td>").append($("<input type='number'>").val(trVal[tdVal]).addClass("need-clear complete-input")).appendTo(newTr);
+          } else if ((tdVal == "ok_qty")) {
             $("<td>").append($("<input type='number'>").val(trVal[tdVal]).addClass("need-clear complete-input")).appendTo(newTr);
           } else {
             $("<td>").html(trVal[tdVal]).appendTo(newTr);
