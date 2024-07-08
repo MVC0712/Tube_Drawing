@@ -53,9 +53,9 @@ FROM
     m_drawing_type ON m_drawing_type.id = t_directive.drawing_type_id
         LEFT JOIN
     m_staff ON m_staff.id = t_directive.staff_id
-        JOIN
+        LEFT JOIN
     (SELECT 
-        MAX(id) max_id,
+        MAX(id) AS max_id,
             production_number_id,
             buloong_a2,
             buloong_b2,
@@ -64,10 +64,10 @@ FROM
     FROM
         t_drawing
     GROUP BY production_number_id) c_max ON (c_max.production_number_id = t_directive.production_number_id)
-        JOIN
-    t_drawing cd ON (cd.id = c_max.max_id) 
-    
-where t_directive.id = '$targetId'";
+        LEFT JOIN
+    t_drawing cd ON (cd.id = c_max.max_id)
+WHERE
+    t_directive.id = '$targetId'";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

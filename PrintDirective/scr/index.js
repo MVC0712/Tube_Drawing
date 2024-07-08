@@ -266,6 +266,7 @@ $(function(){
 			targetId: $("#selected__tr").find("td").eq(0).html(),
 		};
 		myAjax.myAjax(fileName, sendData);
+    console.log(fileName, sendData);
 
     var product_date = ajaxReturnData[0].product_date;
     var production_number = ajaxReturnData[0].production_number;

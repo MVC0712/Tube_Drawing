@@ -12,40 +12,9 @@
     <header>Quality Summary Page</header>
     <div class="main__wrapper">
       <div class="input-block__wrapper">
-        <div class="input__title">D/E/A/P</div>
-        <select id="choice">
-          <!-- <option value="">Select column</option> -->
-          <option value="1">Dim date</option>
-          <option value="2">Etching date</option>
-          <option value="3">Aging date</option>
-          <option value="4">Packing date</option>
-          <option selected value="5">D/E/A/P</option>
-        </select>
-        <!-- <input id="date" class="date__input" type="text" onkeyup="datesearch();" /> -->
-        <input
-          id="date"
-          class="date__input"
-          type="date"
-          onchange="datesearch();"
-        />
-
-        <select id="presstype" onclick="timkiem();">
-          <option value="">Press type</option>
-          <option value="〇">〇</option>
-          <option value="◎">◎</option>
-          <option value="●">●</option>
-        </select>
-      </div>
-      <div class="input-block__wrapper">
-        <div class="input__title">Die Number</div>
-        <input id="die_number__input" class="" type="text" />
-        <select id="machine">
-          <option value="0">2 Máy</option>
-          <option value="1">Máy 1</option>
-          <option value="2">Máy 2</option>
-        </select>
+        <div class="input__title">Production Number</div>
+        <input id="production_number__search" class="" type="text" />
         <div class="input__title">Term</div>
-        <!-- <div class="previous-value__display">12.3</div> -->
         <input id="start_term" class="date__input" type="date" />-
         <input id="end_term" class="date__input" type="date" />
       </div>
@@ -180,7 +149,6 @@
         </table>
       </div>
     </div>
-    <!-- <span id="tt">vl</span> -->
     <div id="desc">
       <div id="vn"></div>
       <div id="jp"></div>

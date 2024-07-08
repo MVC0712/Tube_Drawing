@@ -46,10 +46,10 @@ function SelDrawingType() {
 
   };
   myAjax.myAjax(fileName, sendData);
-  $("#prouction_type_id option").remove();
-  $("#prouction_type_id").append($("<option>").val(0).html("NO"));
+  $("#drawing_type_id option").remove();
+  $("#drawing_type_id").append($("<option>").val(0).html("NO"));
   ajaxReturnData.forEach(function(value) {
-      $("#prouction_type_id").append(
+      $("#drawing_type_id").append(
           $("<option>").val(value["id"]).html(value["drawing_type"])
       );
   });
@@ -528,6 +528,7 @@ $(document).on("click", "#summary__table tbody tr", function (e) {
     // deleteDialog.showModal();
   }
   $("#save__button").attr("disabled", true);
+  $("#preview__button").attr("disabled", false);
   $(".save-data").each(function (index, element) {
     $(this).removeClass("no-input").addClass("complete-input");
   });

@@ -10,6 +10,7 @@ $production_date = $_POST['production_date'];
 $production_time_start = $_POST['production_time_start'];
 $production_time_end = $_POST['production_time_end'];
 $staff_id = $_POST['staff_id'];
+$drawing_type_id = $_POST['drawing_type_id'];
 $ordersheet_id = $_POST['ordersheet_id'];
 $die_number_id = $_POST['die_number_id'];
 $die_status_id = $_POST['die_status_id'];
@@ -47,7 +48,7 @@ $roller_dis = $_POST['roller_dis'];
 $roller_speed = $_POST['roller_speed'];
 try {
     $sql = "INSERT INTO t_drawing (
-                production_number_id, production_date, production_time_start, production_time_end, 
+                production_number_id, production_date, production_time_start, production_time_end, drawing_type_id,
                 staff_id, ordersheet_id, die_number_id, die_status_note, plug_number_id, plug_status_note, die_status_id, plug_status_id,
                 buloong_a1, buloong_a2, buloong_b1, buloong_b2, buloong_c1, buloong_c2, 
                 buloong_d1, buloong_d2, conveyor_height, conveyor_height_note, compress_dim, compress_dim_note, 
@@ -55,13 +56,13 @@ try {
                 start_pull_speed, main_pull_speed, end_pull_speed, pusher_speed, cutting_date, cutting_staff_id, file_url,
                 straight, angle, roller_dis, roller_speed, puller_force)
             VALUES (
-                '$production_number_id','$production_date','$production_time_start','$production_time_end',
+                '$production_number_id','$production_date','$production_time_start','$production_time_end', '$drawing_type_id',
                 '$staff_id','$ordersheet_id','$die_number_id','$die_status_note','$plug_number_id','$plug_status_note', '$die_status_id', '$plug_status_id',
                 '$buloong_a1','$buloong_a2','$buloong_b1','$buloong_b2','$buloong_c1','$buloong_c2',
                 '$buloong_d1','$buloong_d2','$conveyor_height','$conveyor_height_note','$compress_dim','$compress_dim_note',
                 '$compress_pressure','$compress_pressure_note','$clamp_pressure','$clamp_pressure_note',
                 '$start_pull_speed','$main_pull_speed','$end_pull_speed','$pusher_speed','$cutting_date','$cutting_staff_id','$file_url',
-                '$straight', '$angle'$', '$roller_dis', '$roller_speed', '$puller_force')";
+                '$straight', '$angle', '$roller_dis', '$roller_speed', '$puller_force')";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
 

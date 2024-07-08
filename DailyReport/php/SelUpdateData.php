@@ -15,6 +15,7 @@ try {
     t_drawing.production_time_start,
     t_drawing.production_time_end,
     t_drawing.staff_id,
+    t_drawing.drawing_type_id,
     t_drawing.ordersheet_id,
     t_drawing.die_number_id,
     t_drawing.die_status_id,
