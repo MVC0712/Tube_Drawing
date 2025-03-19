@@ -258,14 +258,19 @@ $(document).on("click", "#select_rack_table tbody tr", function() {
   }
 });
 $(document).on("change", "#select_rack_table tbody tr", function() {
-  let qty = $(this).find("td:nth-child(3) input").val();
-  let max_qty = $(this).find("td:nth-child(4)").html();
-  if (qty >= max_qty) {
+  // Lấy giá trị số lượng từ ô thứ 3 của mỗi hàng trong bảng
+  let qty = Number($(this).find("td:nth-child(3) input").val());
+  // Lấy giá trị số lượng tối đa từ ô thứ 4 của mỗi hàng trong bảng
+  let max_qty = Number($(this).find("td:nth-child(4)").html());
+  // Kiểm tra xem số lượng có vượt quá số lượng tối đa không
+  if (qty > max_qty) {
+    // Nếu vượt quá, đặt số lượng về số lượng tối đa
     $(this).find("td:nth-child(3) input").val(max_qty);
   } else if (qty <= 1){
+    // Nếu số lượng nhỏ hơn hoặc bằng 1, đặt số lượng về 1
     $(this).find("td:nth-child(3) input").val(1);
   } else {
-    
+    // Nếu không thuộc các trường hợp trên, không có hành động nào được thực hiện
   }
 });
 
