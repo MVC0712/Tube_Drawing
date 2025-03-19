@@ -50,13 +50,13 @@ function SelDrawingType() {
   $("#drawing_type_id").append($("<option>").val(0).html("NO"));
   ajaxReturnData.forEach(function(value) {
       $("#drawing_type_id").append(
-          $("<option>").val(value["id"]).html(value["drawing_type"])
+          $("<option>").val(value["id"]).html(value["m_drawing_type"])
       );
   });
   ajaxReturnData.forEach(function(value) {
     $("#production_type_filter").append($("<option>").val(0).html("NO"));
     $("#production_type_filter").append(
-        $("<option>").val(value["id"]).html(value["drawing_type"])
+        $("<option>").val(value["id"]).html(value["m_drawing_type"])
     );
 });
 };
